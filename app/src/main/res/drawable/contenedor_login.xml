@@ -4,13 +4,12 @@
 
     <stroke
         android:width="3dp"
-        android:color="@color/color_personalizado">
-
-    </stroke>
+        android:color="@color/color_personalizado"/>
 
     <corners
-        android:radius="20dp">
+        android:radius="20dp"/>
 
-    </corners>
+    <solid
+        android:color="#FFF"/>
 
 </shape>
