@@ -10,6 +10,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="150dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,14 +44,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/string_titulo"
                 android:textAlignment="center"
+                android:textColor="#050505"
                 android:textSize="34sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/txt_usuario"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
+                android:autofillHints=""
                 android:background="@drawable/contenedor_login"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -47,17 +61,19 @@
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:textColor="#070707"
                 android:textColorHint="#0097A7"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:drawableStartCompat="@drawable/baseline_person_24"
-                tools:ignore="RtlSymmetry,TextContrastCheck,TextViewEdits" />
+                tools:ignore="Deprecated,RtlSymmetry,TextContrastCheck,TextViewEdits,VisualLintTextFieldSize" />
 
-            <TextView
+            <EditText
                 android:id="@+id/txt_contrasenia"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:background="@drawable/contenedor_login"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -65,11 +81,12 @@
                 android:inputType="text|textPassword"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:textColor="#070707"
                 android:textColorHint="#0097A7"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:drawableLeftCompat="@drawable/baseline_lock_24"
-                tools:ignore="RtlSymmetry,TextContrastCheck,TextViewEdits" />
+                tools:ignore="RtlSymmetry,TextContrastCheck,TextViewEdits,VisualLintTextFieldSize" />
 
             <Button
                 android:id="@+id/btn_ingresar"
