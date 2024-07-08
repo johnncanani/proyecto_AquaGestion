@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menú Principal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/btnProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos"
+        android:onClick="goToProductList"/>
+
+    <Button
+        android:id="@+id/btnInventory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inventario"
+        android:onClick="goToInventoryList"/>
+
+    <Button
+        android:id="@+id/btnClients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clientes"
+        android:onClick="goToClientList"/>
+
+    <Button
+        android:id="@+id/btnReports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reportes"
+        android:onClick="goToReports"/>
+
+</LinearLayout>
