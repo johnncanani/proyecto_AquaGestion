@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Proyecto_AquaGestion</string>
-    //hola soy jordin
+    <string name="registro_producto">Registro Producto</string>
+    <string name="nombre_producto">Nombre del Producto:</string>
+    <string name="capacidad_producto">Capacidad del Producto:</string>
+    <string name="precio_producto">Precio del Producto:</string>
+    <string name="descripcion_producto">Descripción del Producto:</string>
+    <string name="btn_registrar">Registrar</string>
+    <string name="btn_cancelar">Cancelar</string>
 
+    <string-array name="unidad_medida_array">
+        <item>ml</item>
+        <item>L</item>
+    </string-array>
 </resources>
