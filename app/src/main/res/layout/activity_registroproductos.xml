@@ -12,6 +12,7 @@
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:importantForAccessibility="no"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nombre_producto"
+            android:importantForAutofill="no"
             android:padding="12dp"
             android:background="@drawable/edittext_background"
             android:layout_marginBottom="16dp" />
@@ -106,16 +108,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btn_registrar"
                 android:layout_marginEnd="16dp"
-                android:background="@color/purple_500"
+                android:background="@color/celeste_oscuro"
                 android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/btnCancelar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_cancelar"
                 android:background="#CCCCCC"
-                android:textColor="#000000" />
+                android:text="@string/btn_cancelar"
+                android:textColor="@color/background" />
 
         </LinearLayout>
 

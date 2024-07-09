@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Common Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple_500">#6200EE</color>
+    <color name="celeste_oscuro">#FF007FAC</color>
+
+    <!-- Primary Colors -->
+    <color name="primary">#6200EE</color>
+    <color name="primary_dark">#3700B3</color>
+    <color name="primary_light">#BB86FC</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary">#03DAC6</color>
+    <color name="secondary_dark">#018786</color>
+    <color name="secondary_light">#A7FFEB</color>
+
+    <!-- Error Colors -->
+    <color name="error">#B00020</color>
+    <color name="error_light">#CF6679</color>
+
+    <!-- Background Colors -->
+    <color name="background">#FFFFFF</color>
+    <color name="background_dark">#121212</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_secondary">#000000</color>
+
+    <!-- Additional Colors -->
+    <color name="blue">#2196F3</color>
+    <color name="blue_dark">#1976D2</color>
+    <color name="blue_light">#BBDEFB</color>
+
+    <color name="red">#F44336</color>
+    <color name="red_dark">#D32F2F</color>
+    <color name="red_light">#FFCDD2</color>
+
+    <color name="green">#4CAF50</color>
+    <color name="green_dark">#388E3C</color>
+    <color name="green_light">#C8E6C9</color>
+
+    <color name="yellow">#FFEB3B</color>
+    <color name="yellow_dark">#FBC02D</color>
+    <color name="yellow_light">#FFF9C4</color>
+
+    <color name="orange">#FF9800</color>
+    <color name="orange_dark">#F57C00</color>
+    <color name="orange_light">#FFE0B2</color>
+
+    <color name="grey">#9E9E9E</color>
+    <color name="grey_dark">#616161</color>
+    <color name="grey_light">#F5F5F5</color>
+
+    <!-- Custom Colors -->
+    <color name="custom_color1">#FF007FAC</color>
+    <color name="custom_color2">#6200EA</color>
 </resources>
