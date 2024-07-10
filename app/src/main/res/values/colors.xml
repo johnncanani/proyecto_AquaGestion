@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Colores Comunes -->
+    <color name="negro">#FF000000</color>
+    <color name="blanco">#FFFFFFFF</color>
+    <color name="morado_500">#6200EE</color>
+    <color name="celeste_oscuro">#FF007FAC</color>
+
+    <!-- Colores Primarios -->
+    <color name="primario">#6200EE</color>
+    <color name="primario_oscuro">#3700B3</color>
+    <color name="primario_claro">#BB86FC</color>
+
+    <!-- Colores Secundarios -->
+    <color name="secundario">#03DAC6</color>
+    <color name="secundario_oscuro">#018786</color>
+    <color name="secundario_claro">#A7FFEB</color>
+
+    <!-- Colores de Error -->
+    <color name="error">#B00020</color>
+    <color name="error_claro">#CF6679</color>
+
+    <!-- Colores de Fondo -->
+    <color name="fondo">#FFFFFF</color>
+    <color name="fondo_oscuro">#121212</color>
+
+    <!-- Colores de Texto -->
+    <color name="texto_primario">#000000</color>
+    <color name="texto_secundario">#757575</color>
+    <color name="texto_sobre_primario">#FFFFFF</color>
+    <color name="texto_sobre_secundario">#000000</color>
+
+    <!-- Colores Adicionales -->
+    <color name="azul">#2196F3</color>
+    <color name="azul_oscuro">#1976D2</color>
+    <color name="azul_claro">#BBDEFB</color>
+
+    <color name="rojo">#F44336</color>
+    <color name="rojo_oscuro">#D32F2F</color>
+    <color name="rojo_claro">#FFCDD2</color>
+
+    <color name="verde">#4CAF50</color>
+    <color name="verde_oscuro">#388E3C</color>
+    <color name="verde_claro">#C8E6C9</color>
+
+    <color name="amarillo">#FFEB3B</color>
+    <color name="amarillo_oscuro">#FBC02D</color>
+    <color name="amarillo_claro">#FFF9C4</color>
+
+    <color name="naranja">#FF9800</color>
+    <color name="naranja_oscuro">#F57C00</color>
+    <color name="naranja_claro">#FFE0B2</color>
+
+    <color name="gris">#9E9E9E</color>
+    <color name="gris_oscuro">#616161</color>
+    <color name="gris_claro">#F5F5F5</color>
+
+    <!-- Colores Personalizados -->
+    <color name="color_personalizado1">#FF007FAC</color>
+    <color name="color_personalizado2">#6200EA</color>
 </resources>
