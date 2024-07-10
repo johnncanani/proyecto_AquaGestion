@@ -12,4 +12,10 @@
         <item>ml</item>
         <item>L</item>
     </string-array>
+  
+ //strings para login
+    <string name="string_titulo">Inicio de Sesión</string>
+    <string name="string_usuario">Usuario</string>
+    <string name="string_contrasenia">Contraseña</string>
+    <string name="string_btn_ingresar">Iniciar Sesión</string>
 </resources>

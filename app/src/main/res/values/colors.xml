@@ -58,4 +58,7 @@
     <!-- Colores Personalizados -->
     <color name="color_personalizado1">#FF007FAC</color>
     <color name="color_personalizado2">#6200EA</color>
+    <color name="color_personalizado">#88CDC7</color>
+  
 </resources>
+
