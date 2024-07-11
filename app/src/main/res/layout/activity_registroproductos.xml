@@ -24,6 +24,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:orientation="vertical"
         android:padding="16dp"
         android:background="#2FFFFFFF"
@@ -50,51 +51,65 @@
             android:id="@+id/etNombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_background"
             android:hint="@string/nombre_producto"
             android:importantForAutofill="no"
+            android:inputType="text"
             android:padding="12dp"
-            android:background="@drawable/edittext_background"
-            android:layout_marginBottom="16dp" />
+            android:textColorHint="#5C5454"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <!-- Campo de Capacidad del Producto -->
         <EditText
             android:id="@+id/etCapacidadProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/capacidad_producto"
-            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
             android:background="@drawable/edittext_background"
-            android:layout_marginBottom="16dp" />
+            android:hint="@string/capacidad_producto"
+            android:inputType="number"
+            android:padding="12dp"
+            android:textColorHint="#5C5454"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <!-- Campo de Unidad de Capacidad del Producto -->
         <Spinner
             android:id="@+id/spinnerUnidad"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="16dp"
-            android:entries="@array/unidad_medida_array"
-            android:background="@drawable/edittext_background" />
+            android:autofillHints=""
+            android:background="@drawable/edittext_background"
+            android:entries="@array/unidad_medida_array" />
 
         <!-- Campo de Precio del Producto -->
         <EditText
             android:id="@+id/etPrecioProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_background"
             android:hint="@string/precio_producto"
+            android:importantForAutofill="no"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            android:background="@drawable/edittext_background"
-            android:layout_marginBottom="16dp" />
+            android:textColorHint="#5C5454"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <!-- Campo de Descripción del Producto -->
         <EditText
             android:id="@+id/etDescripcionProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/descripcion_producto"
-            android:padding="12dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_background"
-            android:layout_marginBottom="16dp" />
+            android:hint="@string/descripcion_producto"
+            android:inputType="text|textMultiLine"
+            android:padding="12dp"
+            android:textColorHint="#5C5454"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
         <!-- Botones de Registrar y Cancelar -->
         <LinearLayout
@@ -107,18 +122,22 @@
                 android:id="@+id/btnRegistrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_registrar"
                 android:layout_marginEnd="16dp"
-                android:background="@color/celeste_oscuro"
-                android:textColor="#FFFFFF" />
+                android:backgroundTint="@color/azul"
+                android:text="@string/btn_registrar"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="5dp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnCancelar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#CCCCCC"
+                android:backgroundTint="@color/rojo"
                 android:text="@string/btn_cancelar"
-                android:textColor="@color/blanco" />
+                android:textColor="@color/blanco"
+                app:cornerRadius="5dp"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
