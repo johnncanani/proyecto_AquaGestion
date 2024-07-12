@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proyecto_AquaGestion</string>
+    <string name="app_name">AquaGestion</string>
 
     //strings para registro productos
     <string name="saludo">Hola : </string>
@@ -22,4 +22,6 @@
     <string name="string_usuario">Usuario</string>
     <string name="string_contrasenia">Contraseña</string>
     <string name="string_btn_ingresar">Iniciar Sesión</string>
+    <string name="string_registrar"> <b> <u> <i> Registrar Cuenta </i> </u> </b> </string>
+
 </resources>
