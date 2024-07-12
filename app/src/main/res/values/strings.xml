@@ -22,6 +22,6 @@
     <string name="string_usuario">Usuario</string>
     <string name="string_contrasenia">Contraseña</string>
     <string name="string_btn_ingresar">Iniciar Sesión</string>
-    <string name="string_registrar"> <b> <u> <i> Registrar Cuenta </i> </u> </b> </string>
+    <string name="string_registrar"> <u>Registrar Cuenta</u> </string>
 
 </resources>
