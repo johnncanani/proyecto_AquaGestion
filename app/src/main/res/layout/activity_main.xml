@@ -116,8 +116,10 @@
             android:layout_height="30dp"
             android:clickable="true"
             android:text="@string/string_registrar"
-            android:textColor="#8C11A1"
+            android:textColor="#070707"
+            android:textColorLink="#050505"
             android:textSize="20sp"
+            android:textStyle="bold|italic"
             tools:ignore="KeyboardInaccessibleWidget,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
     </LinearLayout>
 
