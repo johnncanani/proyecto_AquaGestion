@@ -21,30 +21,33 @@
         android:background="@drawable/fondo_general"/>
 
     <!-- Contenedor principal con fondo semi-transparente -->
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="32dp"
         android:autofillHints=""
+        android:background="#2FFFFFFF"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#2FFFFFFF"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="32dp">
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.261">
 
         <!-- Título de Registro de Producto -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/registro_producto"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/blanco"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="@string/registro_producto"
+            android:textColor="@color/blanco"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!-- Campo de Nombre del Producto -->
         <EditText
@@ -115,8 +118,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnRegistrar"
@@ -125,7 +128,7 @@
                 android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/azul"
                 android:text="@string/btn_registrar"
-                android:textColor="#FFFFFF"
+                android:textColor="#212121"
                 app:cornerRadius="5dp"
                 tools:ignore="ButtonStyle" />
 
@@ -135,12 +138,45 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/rojo"
                 android:text="@string/btn_cancelar"
-                android:textColor="@color/blanco"
+                android:textColor="#000000"
                 app:cornerRadius="5dp"
                 tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/contenedor_login"
+            android:contentDescription="@string/descripsion_imagen"
+            app:srcCompat="@drawable/baseline_person_24"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="@string/saludo"
+            android:textAlignment="center"
+            android:textColor="#607D8B"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
