@@ -176,7 +176,8 @@
             android:text="@string/saludo"
             android:textAlignment="center"
             android:textColor="#607D8B"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="TextSizeCheck" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
