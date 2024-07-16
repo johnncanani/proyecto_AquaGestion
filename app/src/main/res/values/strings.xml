@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Proyecto_AquaGestion</string>
     <string name="registro_producto">Registro Producto</string>
@@ -7,6 +8,8 @@
     <string name="descripcion_producto">Descripción del Producto:</string>
     <string name="btn_registrar">Registrar</string>
     <string name="btn_cancelar">Cancelar</string>
+    <string name="inventario_productos">Inventario de Productos</string>
+    <string name="btn_agregar_producto">Agregar Producto</string>
 
     <string-array name="unidad_medida_array">
         <item>ml</item>
