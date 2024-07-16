@@ -14,11 +14,11 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="#000"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         tools:ignore="TextSizeCheck" />
 
@@ -102,5 +102,30 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-40dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="registrar"
+            android:text="@string/string_registrar"
+            android:textAlignment="textEnd"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
 
 </LinearLayout>
