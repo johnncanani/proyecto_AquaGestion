@@ -23,7 +23,6 @@
         <item>L</item>
     </string-array>
 
-
     //strings para Inventario
     <string name="inventario_productos">Inventario de Productos</string>
     <string name="btn_agregar_producto">Agregar Producto</string>
