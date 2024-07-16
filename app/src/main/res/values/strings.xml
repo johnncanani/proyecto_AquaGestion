@@ -8,6 +8,20 @@
     <string name="string_contrasenia">Contraseña</string>
     <string name="string_btn_ingresar">Iniciar Sesión</string>
 
+    //strings para menu principal
+    <string name="main_menu_title">Menú Principal</string>
+    <string name="products">Productos</string>
+    <string name="inventory">Inventario</string>
+    <string name="clients">Clientes</string>
+    <string name="reports">Reportes</string>
+
+    // descripcion de imagenes
+    <string name="products_image_desc">Imagen de Productos</string>
+    <string name="inventory_image_desc">Imagen de Inventario</string>
+    <string name="clients_image_desc">Imagen de Clientes</string>
+    <string name="reports_image_desc">Imagen de Reportes</string>
+
+
     //strings para Registro de producto
     <string name="registro_producto">Registro Producto</string>
     <string name="nombre_producto">Nombre del Producto:</string>
