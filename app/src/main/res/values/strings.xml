@@ -7,6 +7,7 @@
     <string name="string_usuario">Usuario</string>
     <string name="string_contrasenia">Contraseña</string>
     <string name="string_btn_ingresar">Iniciar Sesión</string>
+    <string name="string_registrar"> <u>Registrar Cuenta</u> </string>
 
     //strings para Registro de producto
     <string name="registro_producto">Registro Producto</string>
@@ -21,6 +22,7 @@
         <item>ml</item>
         <item>L</item>
     </string-array>
+
 
     //strings para Inventario
     <string name="inventario_productos">Inventario de Productos</string>
