@@ -1,5 +1,6 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -26,5 +27,13 @@ public class MainActivity extends AppCompatActivity {
     
     public void registrar(View view) {
         Toast.makeText(this, "regitrar", Toast.LENGTH_SHORT).show();
+        Intent registrar = new Intent(this, Activity_registroUsuario.class);
+        startActivity(registrar);
+    }
+
+    public void ingresar(View view) {
+        Toast.makeText(this, "ingresar", Toast.LENGTH_SHORT).show();
+        Intent ingresar = new Intent(this, Menu_Principal.class);
+        startActivity(ingresar);
     }
 }

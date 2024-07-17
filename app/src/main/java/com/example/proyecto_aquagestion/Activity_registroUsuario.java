@@ -1,6 +1,9 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +24,17 @@ public class Activity_registroUsuario extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void volver(View view) {
+        Toast.makeText(this, "volver", Toast.LENGTH_SHORT).show();
+        Intent volver = new Intent(this, MainActivity.class);
+        startActivity(volver);
+    }
+
+    public void registro(View view) {
+        Toast.makeText(this, "registro exitoso", Toast.LENGTH_SHORT).show();
+        Intent registro = new Intent(this, MainActivity.class);
+        startActivity(registro);
+    }
+
 }

@@ -1,6 +1,9 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,12 @@ public class Menu_Principal extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void cerrar_sesion(View view) {
+        Toast.makeText(this, "cerrar sesion", Toast.LENGTH_SHORT).show();
+        Intent cerrar_sesion = new Intent(this, MainActivity.class);
+        startActivity(cerrar_sesion);
+        finish();
     }
 }
