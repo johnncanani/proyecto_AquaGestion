@@ -54,5 +54,9 @@
     <string name="btn_RU_registrar">Registrar</string>
     <string name="btn_RU_cancelar">Cancelar</string>
 
+    //strings para productos
+    <string name="string_titulo_Productos">Lista de Productos</string>
+    <string name="btn_salir_productos">Salir</string>
+
 </resources>
 
