@@ -22,6 +22,9 @@
             android:name=".Activity_Inventario"
             android:exported="false" />
         <activity
+            android:name=".Menu_Principal"
+            android:exported="false"/>
+        <activity
             android:name=".Activity_registroUsuario"
             android:exported="false"/>
         <activity
