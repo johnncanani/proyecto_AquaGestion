@@ -40,6 +40,7 @@
     //strings para Inventario
     <string name="inventario_productos">Inventario de Productos</string>
     <string name="btn_agregar_producto">Agregar Producto</string>
+    <string name="btn_cancelar_productos">Cancelar</string>
 
     //strings para el regitro de usuario
     <string name="string_titulo_RU">Registro de Usuario</string>
