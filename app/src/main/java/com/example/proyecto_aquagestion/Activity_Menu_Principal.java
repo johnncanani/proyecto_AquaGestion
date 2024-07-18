@@ -32,6 +32,9 @@ public class Activity_Menu_Principal extends AppCompatActivity {
         finish();
     }
 
-
-
+    public void ingresar_productos(View view) {
+        Toast.makeText(this, "ingresar productos", Toast.LENGTH_SHORT).show();
+        Intent ingresar_productos= new Intent(this, Activity_Productos.class);
+        startActivity(ingresar_productos);
+    }
 }
