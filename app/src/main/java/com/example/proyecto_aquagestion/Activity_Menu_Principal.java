@@ -37,4 +37,18 @@ public class Activity_Menu_Principal extends AppCompatActivity {
         Intent ingresar_productos= new Intent(this, Activity_Productos.class);
         startActivity(ingresar_productos);
     }
+
+    public void ingreso_inventario(View view) {
+        Toast.makeText(this, "ingreso inventario", Toast.LENGTH_SHORT).show();
+        Intent ingreso_inventario= new Intent(this, Activity_Inventario.class);
+        startActivity(ingreso_inventario);
+
+    }
+
+    public void ingreso_reportes(View view) {
+        Toast.makeText(this, "ingreso reportes", Toast.LENGTH_SHORT).show();
+        Intent ingreso_reportes= new Intent(this, Activity_Reporte_Ventas.class);
+        startActivity(ingreso_reportes);
+
+    }
 }
