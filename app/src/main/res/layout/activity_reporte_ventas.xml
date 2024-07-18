@@ -39,6 +39,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
+        android:onClick="salir_ventas"
         android:text="@string/btn_salir_RP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
