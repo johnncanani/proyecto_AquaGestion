@@ -137,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/rojo"
+                android:onClick="salir_registro"
                 android:text="@string/btn_cancelar"
                 android:textColor="#000000"
                 app:cornerRadius="5dp"
