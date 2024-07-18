@@ -33,15 +33,29 @@
         android:layout_margin="16dp"/>
 
     <!-- Botón para Agregar Producto -->
+
     <Button
         android:id="@+id/btnAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/gris"
         android:text="@string/btn_agregar_producto"
         android:textColor="@color/fondo_oscuro"
-        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#F8F5F5"
+        android:text="@string/btn_cancelar_productos"
+        android:textColor="#020202"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toEndOf="@+id/btnAddProduct" />
 </androidx.constraintlayout.widget.ConstraintLayout>

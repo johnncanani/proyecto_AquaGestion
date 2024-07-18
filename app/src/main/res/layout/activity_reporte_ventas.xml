@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_general"
-    tools:context=".Activity_Productos">
+    tools:context=".Activity_Reporte_Ventas">
 
     <TextView
         android:id="@+id/textView10"
@@ -15,7 +15,7 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/contendor_general"
         android:gravity="center"
-        android:text="@string/string_titulo_Productos"
+        android:text="@string/string_titulo_RP"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +39,10 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
-        android:text="@string/btn_salir_productos"
+        android:text="@string/btn_salir_RP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

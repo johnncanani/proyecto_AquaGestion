@@ -15,6 +15,7 @@
     <string name="inventory">Inventario</string>
     <string name="clients">Clientes</string>
     <string name="reports">Reportes</string>
+    <string name="cerra_sesion">Cerrar Sesión</string>
 
     // descripcion de imagenes
     <string name="products_image_desc">Imagen de Productos</string>
@@ -40,6 +41,7 @@
     //strings para Inventario
     <string name="inventario_productos">Inventario de Productos</string>
     <string name="btn_agregar_producto">Agregar Producto</string>
+    <string name="btn_cancelar_productos">Cancelar</string>
 
     //strings para el regitro de usuario
     <string name="string_titulo_RU">Registro de Usuario</string>
@@ -52,6 +54,14 @@
     <string name="input_RU_contrasenia">Contraseña</string>
     <string name="btn_RU_registrar">Registrar</string>
     <string name="btn_RU_cancelar">Cancelar</string>
+
+    //strings para productos
+    <string name="string_titulo_Productos">Lista de Productos</string>
+    <string name="btn_salir_productos">Salir</string>
+
+    //strings para reporte de ventas
+    <string name="string_titulo_RP">Reporte de Productos</string>
+    <string name="btn_salir_RP">Salir</string>
 
 </resources>
 

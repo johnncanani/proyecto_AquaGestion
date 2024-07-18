@@ -1,6 +1,9 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Menu_Principal extends AppCompatActivity {
+public class Activity_Menu_Principal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,4 +24,14 @@ public class Menu_Principal extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void cerrar_sesion(View view) {
+        Toast.makeText(this, "cerrar sesion", Toast.LENGTH_SHORT).show();
+        Intent cerrar_sesion = new Intent(this, MainActivity.class);
+        startActivity(cerrar_sesion);
+        finish();
+    }
+
+
+
 }
