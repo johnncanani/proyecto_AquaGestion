@@ -80,7 +80,7 @@
             android:id="@+id/btnInventory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="goToInventoryList"
+            android:onClick="ingreso_inventario"
             android:text="@string/inventory" />
     </LinearLayout>
 
@@ -108,7 +108,7 @@
             android:id="@+id/btnClients"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:onClick="goToClientList"
+            android:onClick="ingreso_cliente"
             android:text="@string/clients" />
     </LinearLayout>
 
@@ -138,7 +138,7 @@
             android:id="@+id/btnReports"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="goToReports"
+            android:onClick="ingreso_reportes"
             android:text="@string/reports" />
     </LinearLayout>
 
