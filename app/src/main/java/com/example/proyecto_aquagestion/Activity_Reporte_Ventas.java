@@ -1,6 +1,9 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,12 @@ public class Activity_Reporte_Ventas extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void salir_ventas(View view) {
+        Toast.makeText(this, "salir ventas", Toast.LENGTH_SHORT).show();
+        Intent salir_ventas = new Intent(this, Activity_Menu_Principal.class);
+        startActivity(salir_ventas);
+        finish();
     }
 }
