@@ -58,6 +58,8 @@
     //strings para productos
     <string name="string_titulo_Productos">Lista de Productos</string>
     <string name="btn_salir_productos">Salir</string>
+    <string name="btn_agregar">Agregar</string>
+
 
     //strings para reporte de ventas
     <string name="string_titulo_RP">Reporte de Productos</string>
