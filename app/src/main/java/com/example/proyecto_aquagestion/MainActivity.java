@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void ingresar(View view) {
         Toast.makeText(this, "ingresar", Toast.LENGTH_SHORT).show();
-        Intent ingresar = new Intent(this, Menu_Principal.class);
+        Intent ingresar = new Intent(this, Activity_Menu_Principal.class);
         startActivity(ingresar);
     }
 }

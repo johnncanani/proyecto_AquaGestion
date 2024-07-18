@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Menu_Principal extends AppCompatActivity {
+public class Activity_Menu_Principal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,4 +31,7 @@ public class Menu_Principal extends AppCompatActivity {
         startActivity(cerrar_sesion);
         finish();
     }
+
+
+
 }
