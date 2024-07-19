@@ -87,6 +87,7 @@
             android:id="@+id/btnCancelarVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="cancelar_venta"
             android:text="@string/btn_cancelar_venta" />
 
     </LinearLayout>

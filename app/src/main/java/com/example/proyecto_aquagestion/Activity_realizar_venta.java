@@ -1,6 +1,9 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,11 @@ public class Activity_realizar_venta extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void cancelar_venta(View view) {
+        Toast.makeText(this, "venta cancelada", Toast.LENGTH_SHORT).show();
+        Intent venta_cancelar= new Intent(this, Activity_Menu_Principal.class);
+        startActivity(venta_cancelar);
     }
 }

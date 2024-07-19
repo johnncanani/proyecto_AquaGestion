@@ -13,7 +13,7 @@
     <string name="main_menu_title">Menú Principal</string>
     <string name="products">Productos</string>
     <string name="inventory">Inventario</string>
-    <string name="clients">Clientes</string>
+    <string name="ventas">Ventas</string>
     <string name="reports">Reportes</string>
     <string name="cerra_sesion">Cerrar Sesión</string>
 
