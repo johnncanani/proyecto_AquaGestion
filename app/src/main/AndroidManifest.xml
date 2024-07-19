@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Proyecto_AquaGestion"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_realizar_venta"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ventas"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Menu_Principal"
             android:exported="false" />
         <activity
