@@ -48,7 +48,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/txt_usuario_registro"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -77,7 +77,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/txt_correo_registro"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -105,7 +105,7 @@
             tools:ignore="TextSizeCheck" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/txt_contrasenia1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -113,7 +113,7 @@
             android:background="@drawable/contendor_general"
             android:ems="10"
             android:hint="@string/input_RU_contrasenia"
-            android:inputType="text"
+            android:inputType="text|textPassword"
             android:padding="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="@color/blanco"
@@ -132,7 +132,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/txt_contrasenia2"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -140,7 +140,7 @@
             android:background="@drawable/contendor_general"
             android:ems="10"
             android:hint="@string/input_RU_contrasenia"
-            android:inputType="text"
+            android:inputType="text|textPassword"
             android:padding="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="@color/blanco"
@@ -149,7 +149,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_registro"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -160,7 +160,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_cancelar"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFEFE"
