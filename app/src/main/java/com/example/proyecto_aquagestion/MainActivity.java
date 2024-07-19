@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText et_usuario;
     private EditText et_contrasenia;
 
+    SQLiteDatabase BD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             try {
 
                 DataBase admin = new DataBase(this, consulta.nombre_bd, null, 1);
-                SQLiteDatabase BD = admin.getWritableDatabase();
+                BD = admin.getWritableDatabase();
 
                 Cursor fila = BD.rawQuery(consulta.consulta_usuario(usuario), null);
 
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (SQLException ex) {
                 Toast.makeText(this, "Error en:" + ex.getClass().getName(), Toast.LENGTH_SHORT).show();
+            } finally {
+                BD.close();
             }
 
         } else {
