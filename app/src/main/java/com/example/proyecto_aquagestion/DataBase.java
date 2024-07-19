@@ -8,12 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DataBase extends SQLiteOpenHelper {
 
-    private final String crear_tabla_usuarios = "CREATE TABLE usuario(" +
-            "id_usu INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-            "nombre_usu TEXT NOT NULL UNIQUE, " +
-            "email_usu TEXT NOT NULL UNIQUE, " +
-            "contrasenia_usu INTEGER NOT NULL" +
-            ")";
+    private archivos_staticos consultas;
 
     public DataBase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -22,7 +17,9 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase my_data_base) {
 
-        my_data_base.execSQL(crear_tabla_usuarios);
+        consultas = new archivos_staticos();
+
+        my_data_base.execSQL(consultas.crear_tabla_usuarios);
 
     }
 
