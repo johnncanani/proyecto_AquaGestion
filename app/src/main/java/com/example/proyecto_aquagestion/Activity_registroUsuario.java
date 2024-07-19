@@ -11,29 +11,30 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_registroUsuario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registro_usuario);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
-    
-    public void registrar(View view) {
-        Toast.makeText(this, "regitrar", Toast.LENGTH_SHORT).show();
-        Intent registrar = new Intent(this, Activity_registroUsuario.class);
-        startActivity(registrar);
+
+    public void volver(View view) {
+        Toast.makeText(this, "volver", Toast.LENGTH_SHORT).show();
+        Intent volver = new Intent(this, MainActivity.class);
+        startActivity(volver);
     }
 
-    public void ingresar(View view) {
-        Toast.makeText(this, "ingresar", Toast.LENGTH_SHORT).show();
-        Intent ingresar = new Intent(this, Activity_Menu_Principal.class);
-        startActivity(ingresar);
+    public void registro(View view) {
+        Toast.makeText(this, "registro exitoso", Toast.LENGTH_SHORT).show();
+        Intent registro = new Intent(this, MainActivity.class);
+        startActivity(registro);
     }
+
 }

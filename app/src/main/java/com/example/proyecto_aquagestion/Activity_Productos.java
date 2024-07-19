@@ -11,29 +11,31 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_Productos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_productos);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
-    
-    public void registrar(View view) {
-        Toast.makeText(this, "regitrar", Toast.LENGTH_SHORT).show();
-        Intent registrar = new Intent(this, Activity_registroUsuario.class);
-        startActivity(registrar);
+
+    public void salir_productos(View view) {
+        Toast.makeText(this, "salir_productos", Toast.LENGTH_SHORT).show();
+        Intent salir_productos = new Intent(this, Activity_Menu_Principal.class);
+        startActivity(salir_productos);
+        finish();
+
     }
 
-    public void ingresar(View view) {
-        Toast.makeText(this, "ingresar", Toast.LENGTH_SHORT).show();
-        Intent ingresar = new Intent(this, Activity_Menu_Principal.class);
-        startActivity(ingresar);
+    public void agregar_productos(View view) {
+        Toast.makeText(this, "agregar productos", Toast.LENGTH_SHORT).show();
+        Intent agregar_productos = new Intent(this, Activity_registrarProducto.class);
+        startActivity(agregar_productos);
     }
 }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_general"
+    tools:context=".Activity_Menu_Principal">
+
+    <!-- Título del menú principal -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/contendor_general"
+        android:gravity="center"
+        android:text="@string/main_menu_title"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <!-- Imagen y botón de Productos -->
+    <LinearLayout
+        android:id="@+id/productsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <ImageView
+            android:id="@+id/imgProducts"
+            android:layout_width="126dp"
+            android:layout_height="159dp"
+            android:contentDescription="@string/products_image_desc"
+            android:src="@drawable/agua" />
+
+        <Button
+            android:id="@+id/btnProducts"
+            android:layout_width="match_parent"
+            android:onClick="ingresar_productos"
+            android:layout_height="48dp"
+            android:text="@string/products" />
+    </LinearLayout>
+
+    <!-- Imagen y botón de Inventario -->
+    <LinearLayout
+        android:id="@+id/inventoryLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toEndOf="@+id/productsLayout"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <ImageView
+            android:id="@+id/imgInventory"
+            android:layout_width="129dp"
+            android:layout_height="158dp"
+            android:contentDescription="@string/inventory_image_desc"
+            android:src="@drawable/inventario" />
+
+        <Button
+            android:id="@+id/btnInventory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ingreso_inventario"
+            android:text="@string/inventory" />
+    </LinearLayout>
+
+    <!-- Imagen y botón de Clientes -->
+    <LinearLayout
+        android:id="@+id/clientsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/productsLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productsLayout">
+
+        <ImageView
+            android:id="@+id/imgClients"
+            android:layout_width="130dp"
+            android:layout_height="167dp"
+            android:contentDescription="@string/clients_image_desc"
+            android:src="@drawable/cliente" />
+
+        <Button
+            android:id="@+id/btnClients"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="ingreso_cliente"
+            android:text="@string/clients" />
+    </LinearLayout>
+
+    <!-- Imagen y botón de Reportes -->
+    <LinearLayout
+        android:id="@+id/reportsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inventoryLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="136dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inventoryLayout"
+        app:layout_constraintVertical_bias="0.916">
+
+        <ImageView
+            android:id="@+id/imgReports"
+            android:layout_width="134dp"
+            android:layout_height="170dp"
+            android:contentDescription="@string/reports_image_desc"
+            android:src="@drawable/reporte" />
+
+        <Button
+            android:id="@+id/btnReports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ingreso_reportes"
+            android:text="@string/reports" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:onClick="cerrar_sesion"
+        android:text="@string/cerra_sesion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

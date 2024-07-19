@@ -1,6 +1,9 @@
 package com.example.proyecto_aquagestion;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,18 @@ public class Activity_Inventario extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void agregar_productos_invetario(View view) {
+        Toast.makeText(this, "agregar productos inventario", Toast.LENGTH_SHORT).show();
+        Intent agregar_productos_inventario = new Intent(this, Activity_registrarProducto.class);
+        startActivity(agregar_productos_inventario);
+    }
+
+    public void salir_inventario(View view) {
+        Toast.makeText(this, "salir inventario", Toast.LENGTH_SHORT).show();
+        Intent salir_inventario = new Intent(this, Activity_Menu_Principal.class);
+        startActivity(salir_inventario);
+        finish();
     }
 }
