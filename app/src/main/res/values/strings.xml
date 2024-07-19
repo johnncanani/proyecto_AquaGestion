@@ -2,14 +2,14 @@
 <resources>
     <string name="app_name">AquaGestion</string>
 
-    //strings para login
+    <!-- strings para login -->
     <string name="string_titulo">Inicio de Sesión</string>
     <string name="string_usuario">Usuario</string>
     <string name="string_contrasenia">Contraseña</string>
     <string name="string_btn_ingresar">Iniciar Sesión</string>
     <string name="string_registrar"> <u>Registrar Cuenta</u> </string>
 
-    //strings para menu principal
+    <!-- strings para menu principal -->
     <string name="main_menu_title">Menú Principal</string>
     <string name="products">Productos</string>
     <string name="inventory">Inventario</string>
@@ -17,14 +17,13 @@
     <string name="reports">Reportes</string>
     <string name="cerra_sesion">Cerrar Sesión</string>
 
-    // descripcion de imagenes
+    <!-- descripción de imágenes -->
     <string name="products_image_desc">Imagen de Productos</string>
     <string name="inventory_image_desc">Imagen de Inventario</string>
     <string name="clients_image_desc">Imagen de Clientes</string>
     <string name="reports_image_desc">Imagen de Reportes</string>
 
-
-    //strings para Registro de producto
+    <!-- strings para Registro de producto -->
     <string name="registro_producto">Registro Producto</string>
     <string name="nombre_producto">Nombre del Producto:</string>
     <string name="capacidad_producto">Capacidad del Producto:</string>
@@ -38,12 +37,12 @@
         <item>L</item>
     </string-array>
 
-    //strings para Inventario
+    <!-- strings para Inventario -->
     <string name="inventario_productos">Inventario de Productos</string>
     <string name="btn_agregar_producto">Agregar Producto</string>
     <string name="btn_cancelar_productos">Cancelar</string>
 
-    //strings para el regitro de usuario
+    <!-- strings para el registro de usuario -->
     <string name="string_titulo_RU">Registro de Usuario</string>
     <string name="string_RU_usuario">Ingrese su Usuario</string>
     <string name="input_RU_usuario">Usuario</string>
@@ -55,13 +54,21 @@
     <string name="btn_RU_registrar">Registrar</string>
     <string name="btn_RU_cancelar">Cancelar</string>
 
-    //strings para productos
+    <!-- strings para productos -->
     <string name="string_titulo_Productos">Lista de Productos</string>
     <string name="btn_salir_productos">Salir</string>
     <string name="btn_agregar">Agregar</string>
 
-    //strings para reporte de ventas
+    <!-- strings para reporte de ventas -->
     <string name="string_titulo_RP">Reporte de Productos</string>
     <string name="btn_salir_RP">Salir</string>
+
+    <!-- strings para realizar ventas -->
+    <string name="realizar_venta">Realizar Venta</string>
+    <string name="descripcion_producto_ventas">Descripción del Producto:</string>
+    <string name="ingresar_cantidad">Ingresar Cantidad</string>
+    <string name="btn_realizar_venta">Realizar Venta</string>
+    <string name="btn_editar_venta">Editar Venta</string>
+    <string name="btn_cancelar_venta">Cancelar Venta</string>
 
 </resources>

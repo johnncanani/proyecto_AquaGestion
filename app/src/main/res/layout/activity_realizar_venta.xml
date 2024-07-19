@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_realizar_venta"
+    android:background="@drawable/fondo_general">
+
+    <!-- Contenedor principal centrado -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="318dp"
+        android:layout_height="455dp"
+        android:background="#AAFFFFFF"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
+
+        <!-- Título de la pantalla -->
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/realizar_venta"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Spinner para seleccionar productos -->
+        <Spinner
+            android:id="@+id/spinnerProductos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:minHeight="48dp" />
+
+        <!-- TextView para mostrar la descripción del producto -->
+        <TextView
+            android:id="@+id/tvDescripcionProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#DDDDDD"
+            android:hint="@string/descripcion_producto"
+            android:padding="8dp"
+            android:textColorHint="#616161" />
+
+        <!-- EditText para ingresar la cantidad -->
+        <EditText
+            android:id="@+id/etCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:hint="@string/ingresar_cantidad"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#37474F" />
+
+        <!-- Botón para realizar la venta -->
+        <Button
+            android:id="@+id/btnRealizarVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/btn_realizar_venta"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <!-- Botón para editar la venta -->
+        <Button
+            android:id="@+id/btnEditarVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/btn_editar_venta" />
+
+        <!-- Botón para cancelar la venta -->
+        <Button
+            android:id="@+id/btnCancelarVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancelar_venta" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
