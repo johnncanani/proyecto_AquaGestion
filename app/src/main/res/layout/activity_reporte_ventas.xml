@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_general"
-    tools:context=".Activity_Reporte_Ventas">
+    tools:context=".Activity_Reporte_Ventas"
+    tools:ignore="VisualLintBounds">
 
     <TextView
         android:id="@+id/textView10"

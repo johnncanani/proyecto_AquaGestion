@@ -47,10 +47,15 @@ public class Activity_Menu_Principal extends AppCompatActivity {
 
     }
 
-
     public void ingre_producto(View view) {
         Toast.makeText(this, "ingreso productos", Toast.LENGTH_SHORT).show();
         Intent ingre_producto= new Intent(this, Activity_lista_Productos.class);
         startActivity(ingre_producto);
+    }
+
+    public void registro_ventas(View view){
+        Toast.makeText(this, "registro de de ventas", Toast.LENGTH_SHORT).show();
+        Intent venta_registro= new Intent(this, Activity_realizar_venta.class);
+        startActivity(venta_registro);
     }
 }
