@@ -15,9 +15,9 @@
         <activity
             android:name=".Activity_realizar_venta"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".Activity_ventas"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
             android:name=".Activity_Menu_Principal"
             android:exported="false" />
@@ -27,15 +27,31 @@
         <activity
             android:name=".Activity_Productos"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".Activity_registrarProducto"
-            android:exported="false" />
+            android:exported="false" />-->
+
         <activity
             android:name=".Activity_Inventario"
             android:exported="false" />
         <activity
             android:name=".Activity_registroUsuario"
             android:exported="false" />
+        <activity
+            android:name=".Activity_lista_Productos"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Activity_agregar_Producto"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Editar_Producto"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
