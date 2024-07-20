@@ -32,11 +32,6 @@ public class Activity_Menu_Principal extends AppCompatActivity {
         finish();
     }
 
-    public void ingresar_productos(View view) {
-        Toast.makeText(this, "ingresar productos", Toast.LENGTH_SHORT).show();
-        Intent ingresar_productos= new Intent(this, Activity_Productos.class);
-        startActivity(ingresar_productos);
-    }
 
     public void ingreso_inventario(View view) {
         Toast.makeText(this, "ingreso inventario", Toast.LENGTH_SHORT).show();
@@ -52,9 +47,10 @@ public class Activity_Menu_Principal extends AppCompatActivity {
 
     }
 
-    public void registro_ventas(View view) {
-        Toast.makeText(this, "registro de ventas", Toast.LENGTH_SHORT).show();
-        Intent registro_ventas= new Intent(this, Activity_realizar_venta.class);
-        startActivity(registro_ventas);
+
+    public void ingre_producto(View view) {
+        Toast.makeText(this, "ingreso productos", Toast.LENGTH_SHORT).show();
+        Intent ingre_producto= new Intent(this, Activity_lista_Productos.class);
+        startActivity(ingre_producto);
     }
 }
