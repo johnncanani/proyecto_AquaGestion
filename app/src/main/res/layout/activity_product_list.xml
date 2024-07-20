@@ -37,10 +37,9 @@
         android:textColor="#000000"
         app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.738"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ButtonStyle,MissingConstraints"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteY="458dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
