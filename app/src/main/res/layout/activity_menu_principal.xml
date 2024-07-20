@@ -50,8 +50,8 @@
         <Button
             android:id="@+id/btnProducts"
             android:layout_width="match_parent"
-            android:onClick="ingresar_productos"
             android:layout_height="48dp"
+            android:onClick="ingre_producto"
             android:text="@string/products" />
     </LinearLayout>
 
