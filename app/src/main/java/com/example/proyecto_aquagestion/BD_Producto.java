@@ -3,6 +3,7 @@ package com.example.proyecto_aquagestion;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -11,9 +12,10 @@ import java.util.List;
 
 public class BD_Producto extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "products.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "aqua_gest.db";
+    private static final int DATABASE_VERSION = 2;  // Incrementa la versión para incluir cambios
 
+    // Tablas de Productos
     private static final String TABLE_PRODUCTS = "products";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
@@ -21,6 +23,12 @@ public class BD_Producto extends SQLiteOpenHelper {
     private static final String COLUMN_DESCRIPTION = "description";
     private static final String COLUMN_PRICE = "price";
     private static final String COLUMN_IMAGE_URI = "image_uri";
+
+    // Tablas de Usuarios
+    private static final String TABLE_USERS = "usuario";
+    private static final String COLUMN_USERNAME = "nombre_usu";
+    private static final String COLUMN_EMAIL = "email_usu";
+    private static final String COLUMN_PASSWORD = "contrasenia_usu";
 
     public BD_Producto(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,14 +44,23 @@ public class BD_Producto extends SQLiteOpenHelper {
                 + COLUMN_PRICE + " TEXT,"
                 + COLUMN_IMAGE_URI + " TEXT" + ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
+
+        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
+                + "id_usu INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_USERNAME + " TEXT NOT NULL UNIQUE,"
+                + COLUMN_EMAIL + " TEXT NOT NULL UNIQUE,"
+                + COLUMN_PASSWORD + " TEXT NOT NULL" + ")";
+        db.execSQL(CREATE_USERS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
     }
 
+    // Métodos de Gestión de Productos
     public void addProduct(Producto product) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -115,6 +132,27 @@ public class BD_Producto extends SQLiteOpenHelper {
     public void deleteProduct(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PRODUCTS, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    // Métodos de Gestión de Usuarios
+    public boolean checkUser(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_USERS, new String[]{COLUMN_USERNAME, COLUMN_PASSWORD},
+                COLUMN_USERNAME + "=? AND " + COLUMN_PASSWORD + "=?", new String[]{username, password}, null, null, null, null);
+        boolean userExists = cursor.getCount() > 0;
+        cursor.close();
+        return userExists;
+    }
+
+    public void addUser(String username, String email, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, username);
+        values.put(COLUMN_EMAIL, email);
+        values.put(COLUMN_PASSWORD, password);
+
+        db.insert(TABLE_USERS, null, values);
         db.close();
     }
 }

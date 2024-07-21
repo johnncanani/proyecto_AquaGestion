@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText et_usuario;
     private EditText et_contrasenia;
 
-    SQLiteDatabase BD;
+    private BD_Producto bdProducto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,51 +36,38 @@ public class MainActivity extends AppCompatActivity {
         et_usuario = findViewById(R.id.txt_usuario);
         et_contrasenia = findViewById(R.id.txt_contrasenia);
 
+        bdProducto = new BD_Producto(this);
     }
-    
+
     public void registrar(View view) {
-        Toast.makeText(this, "regitrar", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Registrar", Toast.LENGTH_SHORT).show();
         Intent registrar = new Intent(this, Activity_registroUsuario.class);
         startActivity(registrar);
     }
 
     public void ingresar(View view) {
-
         String usuario = et_usuario.getText().toString();
         String contrasenia = et_contrasenia.getText().toString();
 
-        String campos_validados  =validar_campos(usuario, contrasenia);
+        String campos_validados = validar_campos(usuario, contrasenia);
 
-        if (campos_validados.isEmpty()){
-
-            archivos_staticos consulta = new archivos_staticos();
-
+        if (campos_validados.isEmpty()) {
             try {
-
-                DataBase admin = new DataBase(this, consulta.nombre_bd, null, 1);
-                BD = admin.getWritableDatabase();
-
-                Cursor fila = BD.rawQuery(consulta.consulta_usuario(usuario), null);
-
-                //si en caso lo encuentra
-                if (fila.moveToNext()){
-                    Toast.makeText(this, "ingresar", Toast.LENGTH_SHORT).show();
+                if (bdProducto.checkUser(usuario, contrasenia)) {
+                    Toast.makeText(this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();
                     Intent ingresar = new Intent(this, Activity_Menu_Principal.class);
                     startActivity(ingresar);
-                }else {// en caso no lo encuentre
-                    Toast.makeText(this, "Este Usuario no existe", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
-
-            } catch (SQLException ex) {
-                Toast.makeText(this, "Error en:" + ex.getClass().getName(), Toast.LENGTH_SHORT).show();
+            } catch (Exception ex) {
+                Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
             } finally {
-                BD.close();
+                // No es necesario cerrar la base de datos aquí, ya que `bdProducto` maneja esto internamente
             }
-
         } else {
             Toast.makeText(this, campos_validados, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private String validar_campos(String usuario, String contrasenia) {
