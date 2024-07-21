@@ -24,7 +24,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
             return insets;
         });
     }
-    //aca voy a trabajar
+    //aca voy a trabajar todo
 
     public void cancelar_venta(View view) {
         Toast.makeText(this, "venta cancelada", Toast.LENGTH_SHORT).show();
