@@ -13,7 +13,7 @@
     <string name="main_menu_title">Menú Principal</string>
     <string name="products">Productos</string>
     <string name="inventory">Inventario</string>
-    <string name="clients">Clientes</string>
+    <string name="ventas">Ventas</string>
     <string name="reports">Reportes</string>
     <string name="cerra_sesion">Cerrar Sesión</string>
 
@@ -70,5 +70,25 @@
     <string name="btn_realizar_venta">Realizar Venta</string>
     <string name="btn_editar_venta">Editar Venta</string>
     <string name="btn_cancelar_venta">Cancelar Venta</string>
+
+<!--    string para agregar poductos-->
+    <string name="string_nombre_poducto">Nombre de Producto</string>
+    <string name="string_capacidad_producto">Capacidad del Producto</string>
+    <string name="string_descripcion_producto">Descrpción del producto</string>
+    <string name="string_precio_producto">Precio del Producto</string>
+    <string name="string_descripcion_Img_producto">imagen del producto</string>
+    <string name="string_btn_selecionar_imagen">Seleccionar Imagen</string>
+    <string name="string_btn_agregar_producto">Agregar Producto</string>
+
+<!--    string para editar producto-->
+    <string name="string_producto_nombre">Nombre del Producto</string>
+    <string name="string_producto_capacidad">Capacidad del Producto</string>
+    <string name="string_producto_descripcion">Descripción del Producto</string>
+    <string name="string_producto_precio">Precio del Producto</string>
+    <string name="string_producto_img_descripcion">Descripción de la imagen</string>
+    <string name="string_btn_seleccionar_img">Seleccionar Imagen</string>
+    <string name="string_btn_actualizar_producto">Actualizar Producto</string>
+
+    <string name="btn_eliminar">Eliminar</string>
 
 </resources>

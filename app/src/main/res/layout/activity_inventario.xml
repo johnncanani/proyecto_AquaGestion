@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity_Inventario"
-    android:background="@drawable/fondo_general">
+    android:background="@drawable/fondo_general"
+    tools:ignore="VisualLintBounds">
 
     <!-- Título de la Pantalla -->
     <TextView
