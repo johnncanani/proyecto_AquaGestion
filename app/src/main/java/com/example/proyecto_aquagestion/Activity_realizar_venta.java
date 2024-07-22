@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Activity_realizar_venta extends AppCompatActivity {
 
@@ -69,6 +70,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
         if (intent.hasExtra("datosVenta")) {
             // Cargar datos para edición
             String datosVenta = intent.getStringExtra("datosVenta");
+            assert datosVenta != null;
             cargarDatosParaEdicion(datosVenta);
         }
     }
@@ -130,7 +132,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
         // Seleccionar el producto en el spinner
         ArrayAdapter<Producto> adapter = (ArrayAdapter<Producto>) spinnerProductos.getAdapter();
         for (int i = 0; i < adapter.getCount(); i++) {
-            if (adapter.getItem(i).toString().equals(producto)) {
+            if (Objects.requireNonNull(adapter.getItem(i)).toString().equals(producto)) {
                 spinnerProductos.setSelection(i);
                 break;
             }
