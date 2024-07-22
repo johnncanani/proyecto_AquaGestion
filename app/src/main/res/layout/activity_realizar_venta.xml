@@ -11,8 +11,8 @@
     <!-- Contenedor principal centrado -->
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="318dp"
-        android:layout_height="455dp"
+        android:layout_width="320dp"
+        android:layout_height="558dp"
         android:background="#AAFFFFFF"
         android:gravity="center"
         android:orientation="vertical"
@@ -32,6 +32,17 @@
             android:text="@string/realizar_venta"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+        <!-- TextView para mostrar la fecha actual -->
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#DDDDDD"
+            android:padding="8dp"
+            android:textColorHint="#616161"
+            tools:ignore="HardcodedText" />
 
         <!-- Spinner para seleccionar productos -->
         <Spinner
@@ -73,14 +84,6 @@
             android:layout_marginBottom="16dp"
             android:text="@string/btn_realizar_venta"
             tools:ignore="DuplicateSpeakableTextCheck" />
-
-        <!-- Botón para editar la venta -->
-        <Button
-            android:id="@+id/btnEditarVenta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/btn_editar_venta" />
 
         <!-- Botón para cancelar la venta -->
         <Button

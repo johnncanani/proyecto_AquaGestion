@@ -70,8 +70,10 @@
     <string name="btn_realizar_venta">Realizar Venta</string>
     <string name="btn_editar_venta">Editar Venta</string>
     <string name="btn_cancelar_venta">Cancelar Venta</string>
+    <string name="fecha_actual">Fecha: %1$s</string>
 
-<!--    string para agregar poductos-->
+
+    <!--    string para agregar poductos-->
     <string name="string_nombre_poducto">Nombre de Producto</string>
     <string name="string_capacidad_producto">Capacidad del Producto</string>
     <string name="string_descripcion_producto">Descrpción del producto</string>

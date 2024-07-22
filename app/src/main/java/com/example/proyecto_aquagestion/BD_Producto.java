@@ -30,6 +30,13 @@ public class BD_Producto extends SQLiteOpenHelper {
     private static final String COLUMN_EMAIL = "email_usu";
     private static final String COLUMN_PASSWORD = "contrasenia_usu";
 
+    // Tabla de Ventas
+    private static final String TABLE_SALES = "ventas";
+    private static final String COLUMN_SALE_ID = "id_venta";
+    private static final String COLUMN_PRODUCT_ID = "id_producto";
+    private static final String COLUMN_QUANTITY = "cantidad";
+    private static final String COLUMN_DATE = "fecha";
+
     public BD_Producto(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -51,12 +58,21 @@ public class BD_Producto extends SQLiteOpenHelper {
                 + COLUMN_EMAIL + " TEXT NOT NULL UNIQUE,"
                 + COLUMN_PASSWORD + " TEXT NOT NULL" + ")";
         db.execSQL(CREATE_USERS_TABLE);
+
+        String CREATE_SALES_TABLE = "CREATE TABLE " + TABLE_SALES + "("
+                + COLUMN_SALE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_PRODUCT_ID + " INTEGER,"
+                + COLUMN_QUANTITY + " INTEGER,"
+                + COLUMN_DATE + " TEXT,"
+                + "FOREIGN KEY(" + COLUMN_PRODUCT_ID + ") REFERENCES " + TABLE_PRODUCTS + "(" + COLUMN_ID + ")" + ")";
+        db.execSQL(CREATE_SALES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALES);
         onCreate(db);
     }
 
@@ -134,6 +150,70 @@ public class BD_Producto extends SQLiteOpenHelper {
         db.delete(TABLE_PRODUCTS, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
         db.close();
     }
+
+    // Métodos de Gestión de Ventas
+    public void agregar_Venta(Venta sale) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PRODUCT_ID, sale.getIdProducto());
+        values.put(COLUMN_QUANTITY, sale.getCantidad());
+        values.put(COLUMN_DATE, sale.getFecha());
+
+        db.insert(TABLE_SALES, null, values);
+        db.close();
+    }
+    //obtener ventas
+    public List<Venta> obtener_ventas() {
+        List<Venta> salesList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_SALES;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Venta sale = new Venta(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getInt(2),
+                        cursor.getString(3)
+                );
+                salesList.add(sale);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return salesList;
+    }
+    //botner ventas por id
+    public Venta getSale(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_SALES, new String[]{COLUMN_ID, COLUMN_PRODUCT_ID, COLUMN_QUANTITY, COLUMN_DATE},
+                COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        Venta sale = new Venta(
+                cursor.getInt(0),
+                cursor.getInt(1),
+                cursor.getInt(2),
+                cursor.getString(3)
+        );
+        cursor.close();
+        return sale;
+    }
+    //actualizar una venta
+    public void updateSale(Venta sale) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PRODUCT_ID, sale.getIdProducto());
+        values.put(COLUMN_QUANTITY, sale.getCantidad());
+        values.put(COLUMN_DATE, sale.getFecha());
+
+        db.update(TABLE_SALES, values, COLUMN_ID + " = ?", new String[]{String.valueOf(sale.getId())});
+        db.close();
+    }
+
+
 
     // Métodos de Gestión de Usuarios
     public boolean checkUser(String username, String password) {
