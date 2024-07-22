@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -152,7 +154,8 @@ public class BD_Producto extends SQLiteOpenHelper {
     }
 
     // Métodos de Gestión de Ventas
-    public void agregar_Venta(Venta sale) {
+
+    public void realizar_Venta(@NonNull Venta sale) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_PRODUCT_ID, sale.getIdProducto());
@@ -183,7 +186,7 @@ public class BD_Producto extends SQLiteOpenHelper {
         cursor.close();
         return salesList;
     }
-    //botner ventas por id
+    //obtner ventas por id
     public Venta getSale(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_SALES, new String[]{COLUMN_ID, COLUMN_PRODUCT_ID, COLUMN_QUANTITY, COLUMN_DATE},
@@ -201,18 +204,6 @@ public class BD_Producto extends SQLiteOpenHelper {
         cursor.close();
         return sale;
     }
-    //actualizar una venta
-    public void updateSale(Venta sale) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_PRODUCT_ID, sale.getIdProducto());
-        values.put(COLUMN_QUANTITY, sale.getCantidad());
-        values.put(COLUMN_DATE, sale.getFecha());
-
-        db.update(TABLE_SALES, values, COLUMN_ID + " = ?", new String[]{String.valueOf(sale.getId())});
-        db.close();
-    }
-
 
 
     // Métodos de Gestión de Usuarios

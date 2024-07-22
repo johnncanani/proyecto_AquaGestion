@@ -1,10 +1,10 @@
 package com.example.proyecto_aquagestion;
 
 public class Venta {
-    private final int id;
-    private final int idProducto;
-    private final int cantidad;
-    private final String fecha;
+    private int id;
+    private int idProducto;
+    private int cantidad;
+    private String fecha;
 
     public Venta(int id, int idProducto, int cantidad, String fecha) {
         this.id = id;
@@ -27,5 +27,21 @@ public class Venta {
 
     public String getFecha() {
         return fecha;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }

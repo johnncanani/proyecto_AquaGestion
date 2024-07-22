@@ -72,6 +72,13 @@
     <string name="btn_cancelar_venta">Cancelar Venta</string>
     <string name="fecha_actual">Fecha: %1$s</string>
 
+    <!-- strings para confirmar venta -->
+    <string name="confirmar_venta">Confirmar Venta</string>
+    <string name="producto_id">ID del Producto:</string>
+    <string name="cantidad">Cantidad:</string>
+    <string name="fecha">Fecha:</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_hecho">Hecho</string>
 
     <!--    string para agregar poductos-->
     <string name="string_nombre_poducto">Nombre de Producto</string>
@@ -82,7 +89,7 @@
     <string name="string_btn_selecionar_imagen">Seleccionar Imagen</string>
     <string name="string_btn_agregar_producto">Agregar Producto</string>
 
-<!--    string para editar producto-->
+    <!--    string para editar producto-->
     <string name="string_producto_nombre">Nombre del Producto</string>
     <string name="string_producto_capacidad">Capacidad del Producto</string>
     <string name="string_producto_descripcion">Descripción del Producto</string>
