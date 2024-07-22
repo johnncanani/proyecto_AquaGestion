@@ -155,4 +155,8 @@ public class BD_Producto extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
+
+
+    //SELECT nombre_pro, cantidad_pro, precio_pro, cantidad_pro * precio_pro as Total_Precio
+    //FROM producto
 }

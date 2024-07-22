@@ -23,17 +23,6 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Lista de Productos -->
-    <ListView
-        android:id="@+id/rvProducts"
-        android:layout_width="350dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/contendor_general"
-        android:backgroundTint="@color/azul_claro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <!-- Botón para Agregar Producto -->
 
@@ -63,4 +52,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toEndOf="@+id/btnAddProduct" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="400dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
