@@ -165,46 +165,34 @@ public class BD_Producto extends SQLiteOpenHelper {
         db.insert(TABLE_SALES, null, values);
         db.close();
     }
-    //obtener ventas
-    public List<Venta> obtener_ventas() {
-        List<Venta> salesList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TABLE_SALES;
-        SQLiteDatabase db = this.getWritableDatabase();
+
+    // Obtener reporte de ventas
+    public List<ReporteVenta> reporte_ventas() {
+        List<ReporteVenta> reportList = new ArrayList<>();
+        String selectQuery = "SELECT p." + COLUMN_IMAGE_URI + ", p." + COLUMN_NAME + ", s." + COLUMN_DATE +
+                ", p." + COLUMN_PRICE + ", s." + COLUMN_QUANTITY +
+                ", (p." + COLUMN_PRICE + " * s." + COLUMN_QUANTITY + ") AS total_pagado " +
+                "FROM " + TABLE_SALES + " s " +
+                "JOIN " + TABLE_PRODUCTS + " p ON s." + COLUMN_PRODUCT_ID + " = p." + COLUMN_ID;
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
-                Venta sale = new Venta(
-                        cursor.getInt(0),
-                        cursor.getInt(1),
-                        cursor.getInt(2),
-                        cursor.getString(3)
+                ReporteVenta reporte = new ReporteVenta(
+                        cursor.getString(0), // Imagen del producto
+                        cursor.getString(1), // Nombre del producto
+                        cursor.getString(2), // Fecha
+                        cursor.getString(3), // Precio
+                        cursor.getInt(4),    // Cantidad
+                        cursor.getDouble(5)  // Total a pagar
                 );
-                salesList.add(sale);
+                reportList.add(reporte);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        return salesList;
+        return reportList;
     }
-    //obtner ventas por id
-    public Venta getSale(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_SALES, new String[]{COLUMN_ID, COLUMN_PRODUCT_ID, COLUMN_QUANTITY, COLUMN_DATE},
-                COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-
-        Venta sale = new Venta(
-                cursor.getInt(0),
-                cursor.getInt(1),
-                cursor.getInt(2),
-                cursor.getString(3)
-        );
-        cursor.close();
-        return sale;
-    }
-
 
     // Métodos de Gestión de Usuarios
     public boolean checkUser(String username, String password) {
