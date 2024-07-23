@@ -59,10 +59,6 @@
     <string name="btn_salir_productos">Salir</string>
     <string name="btn_agregar">Agregar</string>
 
-    <!-- strings para reporte de ventas -->
-    <string name="string_titulo_RP">Reporte de Productos</string>
-    <string name="btn_salir_RP">Salir</string>
-
     <!-- strings para realizar ventas -->
     <string name="realizar_venta">Realizar Venta</string>
     <string name="descripcion_producto_ventas">Descripción del Producto:</string>
@@ -70,17 +66,26 @@
     <string name="btn_realizar_venta">Realizar Venta</string>
     <string name="btn_editar_venta">Editar Venta</string>
     <string name="btn_cancelar_venta">Cancelar Venta</string>
+    <string name="fecha_actual">Fecha: %1$s</string>
 
-<!--    string para agregar poductos-->
+    <!-- strings para confirmar venta -->
+    <string name="confirmar_venta">Confirmar Venta</string>
+    <string name="producto_id">ID del Producto:</string>
+    <string name="cantidad">Cantidad:</string>
+    <string name="fecha">Fecha:</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_hecho">Hecho</string>
+
+    <!--    string para agregar poductos-->
     <string name="string_nombre_poducto">Nombre de Producto</string>
     <string name="string_capacidad_producto">Capacidad del Producto</string>
     <string name="string_descripcion_producto">Descrpción del producto</string>
     <string name="string_precio_producto">Precio del Producto</string>
-    <string name="string_descripcion_Img_producto">imagen del producto</string>
+    <string name="reporte_Img_producto">imagen del producto</string>
     <string name="string_btn_selecionar_imagen">Seleccionar Imagen</string>
     <string name="string_btn_agregar_producto">Agregar Producto</string>
 
-<!--    string para editar producto-->
+    <!--    string para editar producto-->
     <string name="string_producto_nombre">Nombre del Producto</string>
     <string name="string_producto_capacidad">Capacidad del Producto</string>
     <string name="string_producto_descripcion">Descripción del Producto</string>
@@ -91,4 +96,14 @@
 
     <string name="btn_eliminar">Eliminar</string>
 
+    <!-- strings para reporte de ventas -->
+    <string name="string_titulo_RP">Reporte de Ventas</string>
+    <string name="btn_salir_RP">Salir</string>
+
+    <string name="repor_imagen_producto">imag del producto</string>
+    <string name="repor_nombre_poducto">Nombre del Producto</string>
+    <string name="repor_cantidad_producto">Cantidad del Producto</string>
+    <string name="repor_precio_producto">Precio del Producto</string>
+    <string name="repor_total_pagado">Total a Pagar</string>
+    <string name="btn_eliminar_repor">Eliminar</string>
 </resources>

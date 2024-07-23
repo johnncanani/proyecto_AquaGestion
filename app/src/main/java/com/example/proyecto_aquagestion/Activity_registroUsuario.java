@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+
 public class Activity_registroUsuario extends AppCompatActivity {
 
     private EditText et_usuario_registro;
