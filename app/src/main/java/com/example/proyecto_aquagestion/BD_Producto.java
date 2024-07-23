@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,13 @@ public class BD_Producto extends SQLiteOpenHelper {
     private static final String COLUMN_EMAIL = "email_usu";
     private static final String COLUMN_PASSWORD = "contrasenia_usu";
 
+    // Tabla de Ventas
+    private static final String TABLE_SALES = "ventas";
+    private static final String COLUMN_SALE_ID = "id_venta";
+    private static final String COLUMN_PRODUCT_ID = "id_producto";
+    private static final String COLUMN_QUANTITY = "cantidad";
+    private static final String COLUMN_DATE = "fecha";
+
     public BD_Producto(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -51,12 +60,21 @@ public class BD_Producto extends SQLiteOpenHelper {
                 + COLUMN_EMAIL + " TEXT NOT NULL UNIQUE,"
                 + COLUMN_PASSWORD + " TEXT NOT NULL" + ")";
         db.execSQL(CREATE_USERS_TABLE);
+
+        String CREATE_SALES_TABLE = "CREATE TABLE " + TABLE_SALES + "("
+                + COLUMN_SALE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_PRODUCT_ID + " INTEGER,"
+                + COLUMN_QUANTITY + " INTEGER,"
+                + COLUMN_DATE + " TEXT,"
+                + "FOREIGN KEY(" + COLUMN_PRODUCT_ID + ") REFERENCES " + TABLE_PRODUCTS + "(" + COLUMN_ID + ")" + ")";
+        db.execSQL(CREATE_SALES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALES);
         onCreate(db);
     }
 
@@ -135,6 +153,47 @@ public class BD_Producto extends SQLiteOpenHelper {
         db.close();
     }
 
+    // Métodos de Gestión de Ventas
+
+    public void realizar_Venta(@NonNull Venta sale) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PRODUCT_ID, sale.getIdProducto());
+        values.put(COLUMN_QUANTITY, sale.getCantidad());
+        values.put(COLUMN_DATE, sale.getFecha());
+
+        db.insert(TABLE_SALES, null, values);
+        db.close();
+    }
+
+    // Obtener reporte de ventas
+    public List<ReporteVenta> reporte_ventas() {
+        List<ReporteVenta> reportList = new ArrayList<>();
+        String selectQuery = "SELECT p." + COLUMN_IMAGE_URI + ", p." + COLUMN_NAME + ", s." + COLUMN_DATE +
+                ", p." + COLUMN_PRICE + ", s." + COLUMN_QUANTITY +
+                ", (p." + COLUMN_PRICE + " * s." + COLUMN_QUANTITY + ") AS total_pagado " +
+                "FROM " + TABLE_SALES + " s " +
+                "JOIN " + TABLE_PRODUCTS + " p ON s." + COLUMN_PRODUCT_ID + " = p." + COLUMN_ID;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                ReporteVenta reporte = new ReporteVenta(
+                        cursor.getString(0), // Imagen del producto
+                        cursor.getString(1), // Nombre del producto
+                        cursor.getString(2), // Fecha
+                        cursor.getString(3), // Precio
+                        cursor.getInt(4),    // Cantidad
+                        cursor.getDouble(5)  // Total a pagar
+                );
+                reportList.add(reporte);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return reportList;
+    }
+
     // Métodos de Gestión de Usuarios
     public boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -155,4 +214,5 @@ public class BD_Producto extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
+
 }

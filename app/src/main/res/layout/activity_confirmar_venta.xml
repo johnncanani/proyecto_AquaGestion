@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_confirmar_venta"
+    android:background="@drawable/fondo_general">
+
+    <LinearLayout
+        android:layout_width="415dp"
+        android:layout_height="392dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck,VisualLintBounds">
+
+        <TextView
+            android:id="@+id/tvConfirmarVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/confirmar_venta"
+            android:textColor="@color/blanco"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDatosVenta"
+            android:layout_width="378dp"
+            android:layout_height="126dp"
+            android:layout_marginBottom="16dp"
+            android:background="#DDDDDD"
+            android:padding="8dp"
+            android:textColorHint="#616161"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnEditarVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/btn_editar"
+            tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btnConfirmarVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_hecho"
+            tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
