@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.Entidades.ReporteVenta;
 
 import java.util.List;
 
@@ -46,11 +48,6 @@ public class Activity_Reporte_Ventas extends AppCompatActivity {
 
         bdProducto = new BD_Producto(this);
         cargarReporteVentas();
-
-        btnDeleteProduct.setOnClickListener(v -> {
-            // Implementa la lógica para eliminar un producto del reporte
-            Toast.makeText(Activity_Reporte_Ventas.this, "Producto eliminado", Toast.LENGTH_SHORT).show();
-        });
 
         buttonSalir.setOnClickListener(this::salir_ventas);
     }

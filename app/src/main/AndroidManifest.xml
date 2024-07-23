@@ -50,7 +50,7 @@
             android:name=".Activity_agregar_Producto"
             android:exported="true"></activity>
         <activity
-            android:name=".Editar_Producto"
+            android:name=".Entidades.Editar_Producto"
             android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
