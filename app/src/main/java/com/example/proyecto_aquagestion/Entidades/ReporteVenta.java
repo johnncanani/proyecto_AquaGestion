@@ -1,4 +1,4 @@
-    package com.example.proyecto_aquagestion;
+    package com.example.proyecto_aquagestion.Entidades;
 
     public class ReporteVenta {
         private String imageUri;

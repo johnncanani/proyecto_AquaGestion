@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.Entidades.Editar_Producto;
+import com.example.proyecto_aquagestion.Entidades.Producto;
+
 import java.util.List;
 
 public class Activity_lista_Productos extends AppCompatActivity {

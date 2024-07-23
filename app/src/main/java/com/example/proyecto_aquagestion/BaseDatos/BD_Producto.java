@@ -1,13 +1,16 @@
-package com.example.proyecto_aquagestion;
+package com.example.proyecto_aquagestion.BaseDatos;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.NonNull;
+
+import com.example.proyecto_aquagestion.Entidades.Producto;
+import com.example.proyecto_aquagestion.Entidades.ReporteVenta;
+import com.example.proyecto_aquagestion.Entidades.Venta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -169,11 +172,11 @@ public class BD_Producto extends SQLiteOpenHelper {
     // Obtener reporte de ventas
     public List<ReporteVenta> reporte_ventas() {
         List<ReporteVenta> reportList = new ArrayList<>();
-        String selectQuery = "SELECT p." + COLUMN_IMAGE_URI + ", p." + COLUMN_NAME + ", s." + COLUMN_DATE +
+        String selectQuery = "SELECT " + "p." + COLUMN_NAME + ", s." + COLUMN_DATE +
                 ", p." + COLUMN_PRICE + ", s." + COLUMN_QUANTITY +
                 ", (p." + COLUMN_PRICE + " * s." + COLUMN_QUANTITY + ") AS total_pagado " +
                 "FROM " + TABLE_SALES + " s " +
-                "JOIN " + TABLE_PRODUCTS + " p ON s." + COLUMN_PRODUCT_ID + " = p." + COLUMN_ID;
+                "INNER JOIN " + TABLE_PRODUCTS + " p ON s." + COLUMN_PRODUCT_ID + " = p." + COLUMN_ID;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 

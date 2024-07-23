@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.Entidades.Producto;
+
 import java.io.IOException;
 
 public class Activity_agregar_Producto extends AppCompatActivity {
