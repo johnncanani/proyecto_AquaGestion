@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,15 +14,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
-import com.example.proyecto_aquagestion.Entidades.ReporteVenta;
-
-import java.util.List;
 
 public class Activity_Reporte_Ventas extends AppCompatActivity {
 
-    private ImageView ivProductImage;
-    private TextView tvProductName, tvProductQuantity, tvProductPrice, tvTotalPago;
-    private Button btnDeleteProduct, buttonSalir;
+    private TextView tvProductName, tvProductQuantity, tvProductPrice, tvTotalPago, tvFecha;
+    private Button buttonSalir;
     private BD_Producto bdProducto;
 
     @Override
@@ -38,31 +33,28 @@ public class Activity_Reporte_Ventas extends AppCompatActivity {
             return insets;
         });
 
-        ivProductImage = findViewById(R.id.ivProductImage);
         tvProductName = findViewById(R.id.tvProductName);
         tvProductQuantity = findViewById(R.id.tvProductQuantity);
         tvProductPrice = findViewById(R.id.tvProductPrice);
         tvTotalPago = findViewById(R.id.tvTotalPago);
-        btnDeleteProduct = findViewById(R.id.btnDeleteProduct);
+        tvFecha = findViewById(R.id.etFecha);
         buttonSalir = findViewById(R.id.button4);
 
-        bdProducto = new BD_Producto(this);
-        cargarReporteVentas();
+        // Obtener datos pasados desde Activity_confirmar_venta
+        Intent intent = getIntent();
+        String producto = intent.getStringExtra("producto");
+        int cantidad = intent.getIntExtra("cantidad", 0);
+        String fecha = intent.getStringExtra("fecha");
+        double total = intent.getDoubleExtra("total", 0.0);
+
+        // Mostrar los datos en los TextView
+        tvProductName.setText("Nombre del porducto "+producto);
+        tvProductQuantity.setText(String.valueOf("cantidad del producto: "+cantidad));
+        tvProductPrice.setText(String.valueOf("precio: "+total / cantidad)); // Asumiendo que total es la suma de precios
+        tvTotalPago.setText(String.valueOf("Total S./ "+total));
+        tvFecha.setText("Fecha: "+fecha);
 
         buttonSalir.setOnClickListener(this::salir_ventas);
-    }
-
-    private void cargarReporteVentas() {
-        List<ReporteVenta> reporteVentas = bdProducto.reporte_ventas();
-
-        if (!reporteVentas.isEmpty()) {
-            ReporteVenta reporte = reporteVentas.get(0);
-            tvProductName.setText(reporte.getNombreProducto());
-            tvProductQuantity.setText(String.valueOf(reporte.getCantidad()));
-            tvProductPrice.setText(reporte.getPrecio());
-            tvTotalPago.setText(String.valueOf(reporte.getTotalPagado()));
-            // Cargar imagen si es necesario (por ejemplo, usando Glide o Picasso)
-        }
     }
 
     public void salir_ventas(View view) {

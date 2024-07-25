@@ -2,6 +2,8 @@ package com.example.proyecto_aquagestion;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,7 +33,9 @@ public class Activity_realizar_venta extends AppCompatActivity {
     private TextView tvFecha;
     private Spinner spinnerProductos;
     private TextView tvDescripcionProducto;
+    private TextView tvPrecioProducto;
     private EditText etCantidad;
+    private TextView tvTotalVenta;
     private Button btnRealizarVenta;
     private Button btnCancelarVenta;
 
@@ -52,12 +56,14 @@ public class Activity_realizar_venta extends AppCompatActivity {
         tvFecha = findViewById(R.id.tvFecha);
         spinnerProductos = findViewById(R.id.spinnerProductos);
         tvDescripcionProducto = findViewById(R.id.tvDescripcionProducto);
+        tvPrecioProducto = findViewById(R.id.tvPrecioProducto);
         etCantidad = findViewById(R.id.etCantidad);
+        tvTotalVenta = findViewById(R.id.tvTotalVenta);
         btnRealizarVenta = findViewById(R.id.btnRealizarVenta);
         btnCancelarVenta = findViewById(R.id.btnCancelarVenta);
 
         // Configurar la fecha actual
-        String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
         tvFecha.setText(currentDate);
 
         // Cargar los productos en el spinner
@@ -87,13 +93,44 @@ public class Activity_realizar_venta extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Producto productoSeleccionado = (Producto) parent.getItemAtPosition(position);
                 tvDescripcionProducto.setText(productoSeleccionado.getDescription());
+                tvPrecioProducto.setText(productoSeleccionado.getPrice());
+                calcularTotalVenta();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 tvDescripcionProducto.setText("");
+                tvPrecioProducto.setText("");
+                tvTotalVenta.setText("");
             }
         });
+
+        etCantidad.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calcularTotalVenta();
+            }
+        });
+    }
+
+    private void calcularTotalVenta() {
+        String precioString = tvPrecioProducto.getText().toString();
+        String cantidadString = etCantidad.getText().toString();
+
+        if (!precioString.isEmpty() && !cantidadString.isEmpty()) {
+            double precio = Double.parseDouble(precioString);
+            int cantidad = Integer.parseInt(cantidadString);
+            double total = precio * cantidad;
+            tvTotalVenta.setText(String.format(Locale.getDefault(), "%.2f", total));
+        } else {
+            tvTotalVenta.setText("");
+        }
     }
 
     public void realizarVenta(View view) {
@@ -101,9 +138,10 @@ public class Activity_realizar_venta extends AppCompatActivity {
         String cantidad = etCantidad.getText().toString();
         String fecha = tvFecha.getText().toString();
         String descripcion = tvDescripcionProducto.getText().toString();
+        String total = tvTotalVenta.getText().toString();
 
         // Formar el string de datos de la venta
-        String datosVenta = "Producto: " + producto + "\nCantidad: " + cantidad + "\nFecha: " + fecha + "\nDescripción: " + descripcion;
+        String datosVenta = "Producto: " + producto + "\nCantidad: " + cantidad + "\nFecha: " + fecha + "\nDescripción: " + descripcion + "\nTotal: " + total;
 
         // Pasar los datos a la actividad de confirmación
         Intent confirmarVentaIntent = new Intent(Activity_realizar_venta.this, Activity_confirmar_venta.class);
@@ -124,11 +162,13 @@ public class Activity_realizar_venta extends AppCompatActivity {
         String cantidad = datos[1].split(": ")[1];
         String fecha = datos[2].split(": ")[1];
         String descripcion = datos[3].split(": ")[1];
+        String total = datos[4].split(": ")[1];
 
         // Rellenar los campos con los datos obtenidos
         tvFecha.setText(fecha);
         etCantidad.setText(cantidad);
         tvDescripcionProducto.setText(descripcion);
+        tvTotalVenta.setText(total);
 
         // Seleccionar el producto en el spinner
         ArrayAdapter<Producto> adapter = (ArrayAdapter<Producto>) spinnerProductos.getAdapter();
