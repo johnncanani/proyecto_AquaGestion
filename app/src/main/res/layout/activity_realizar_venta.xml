@@ -12,7 +12,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="320dp"
-        android:layout_height="558dp"
+        android:layout_height="wrap_content"
         android:background="#AAFFFFFF"
         android:gravity="center"
         android:orientation="vertical"
@@ -64,17 +64,38 @@
             android:padding="8dp"
             android:textColorHint="#616161" />
 
+        <!-- TextView para mostrar el precio del producto -->
+        <TextView
+            android:id="@+id/tvPrecioProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#DDDDDD"
+            android:hint="@string/precio_producto"
+            android:padding="8dp"
+            android:textColorHint="#616161" />
+
         <!-- EditText para ingresar la cantidad -->
         <EditText
             android:id="@+id/etCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:autofillHints=""
             android:hint="@string/ingresar_cantidad"
             android:inputType="number"
             android:minHeight="48dp"
             android:textColorHint="#37474F" />
+
+        <!-- TextView para mostrar el total de la venta -->
+        <TextView
+            android:id="@+id/tvTotalVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#DDDDDD"
+            android:hint="@string/total_venta"
+            android:padding="8dp"
+            android:textColorHint="#616161" />
 
         <!-- Botón para realizar la venta -->
         <Button

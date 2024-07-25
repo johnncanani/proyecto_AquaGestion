@@ -42,4 +42,9 @@ public class Producto {
 
     public String getImageUri() { return imageUri; }
     public void setImageUri(String imageUri) { this.imageUri = imageUri; }
+
+    @Override
+    public String toString() {
+        return name; // Retorna solo el nombre del producto
+    }
 }

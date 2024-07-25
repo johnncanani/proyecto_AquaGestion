@@ -1,15 +1,13 @@
     package com.example.proyecto_aquagestion.Entidades;
 
     public class ReporteVenta {
-        private String imageUri;
         private String nombreProducto;
         private String fecha;
         private String precio;
         private int cantidad;
         private double totalPagado;
 
-        public ReporteVenta(String imageUri, String nombreProducto, String fecha, String precio, int cantidad, double totalPagado) {
-            this.imageUri = imageUri;
+        public ReporteVenta(String nombreProducto, String fecha, String precio, int cantidad, double totalPagado) {
             this.nombreProducto = nombreProducto;
             this.fecha = fecha;
             this.precio = precio;
@@ -17,13 +15,6 @@
             this.totalPagado = totalPagado;
         }
 
-        public String getImageUri() {
-            return imageUri;
-        }
-
-        public void setImageUri(String imageUri) {
-            this.imageUri = imageUri;
-        }
 
         public String getNombreProducto() {
             return nombreProducto;
