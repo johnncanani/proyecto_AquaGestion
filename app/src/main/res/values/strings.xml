@@ -67,6 +67,7 @@
     <string name="btn_editar_venta">Editar Venta</string>
     <string name="btn_cancelar_venta">Cancelar Venta</string>
     <string name="fecha_actual">Fecha: %1$s</string>
+    <string name="total_venta">Total de la venta S/.</string>
 
     <!-- strings para confirmar venta -->
     <string name="confirmar_venta">Confirmar Venta</string>
@@ -102,8 +103,9 @@
 
     <string name="repor_imagen_producto">imag del producto</string>
     <string name="repor_nombre_poducto">Nombre del Producto</string>
-    <string name="repor_cantidad_producto">Cantidad del Producto</string>
-    <string name="repor_precio_producto">Precio del Producto</string>
-    <string name="repor_total_pagado">Total a Pagar</string>
+    <string name="repor_cant_pedido">Cantidad del Producto</string>
+    <string name="repor_precio_pedido">Precio del Producto</string>
+    <string name="fecha_venta">Fecha de la Venta</string>
+    <string name="repor_tot_pag">Total a Pagar</string>
     <string name="btn_eliminar_repor">Eliminar</string>
 </resources>

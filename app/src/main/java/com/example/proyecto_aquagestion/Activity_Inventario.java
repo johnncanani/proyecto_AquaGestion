@@ -27,7 +27,7 @@ public class Activity_Inventario extends AppCompatActivity {
 
     public void agregar_productos_invetario(View view) {
         Toast.makeText(this, "agregar productos inventario", Toast.LENGTH_SHORT).show();
-        Intent agregar_productos_inventario = new Intent(this, Activity_registrarProducto.class);
+        Intent agregar_productos_inventario = new Intent(this, Activity_lista_Productos.class);
         startActivity(agregar_productos_inventario);
     }
 

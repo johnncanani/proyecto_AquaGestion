@@ -41,6 +41,7 @@ public class BD_Producto extends SQLiteOpenHelper {
     private static final String COLUMN_PRODUCT_ID = "id_producto";
     private static final String COLUMN_QUANTITY = "cantidad";
     private static final String COLUMN_DATE = "fecha";
+    private static final String COLUMN_TOTAL_PAGADO = "total_pagado";
 
     public BD_Producto(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -69,16 +70,16 @@ public class BD_Producto extends SQLiteOpenHelper {
                 + COLUMN_PRODUCT_ID + " INTEGER,"
                 + COLUMN_QUANTITY + " INTEGER,"
                 + COLUMN_DATE + " TEXT,"
+                + COLUMN_TOTAL_PAGADO + " REAL,"
                 + "FOREIGN KEY(" + COLUMN_PRODUCT_ID + ") REFERENCES " + TABLE_PRODUCTS + "(" + COLUMN_ID + ")" + ")";
         db.execSQL(CREATE_SALES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALES);
-        onCreate(db);
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE " + TABLE_SALES + " ADD COLUMN " + COLUMN_TOTAL_PAGADO + " REAL DEFAULT 0");
+        }
     }
 
     // Métodos de Gestión de Productos
@@ -112,6 +113,26 @@ public class BD_Producto extends SQLiteOpenHelper {
         );
         cursor.close();
         return product;
+    }
+
+    public Producto getProductByName(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_PRODUCTS, new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_CAPACITY, COLUMN_DESCRIPTION, COLUMN_PRICE, COLUMN_IMAGE_URI},
+                COLUMN_NAME + "=?", new String[]{name}, null, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            Producto product = new Producto(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+            cursor.close();
+            return product;
+        } else {
+            return null;
+        }
     }
 
     public List<Producto> getAllProducts() {
@@ -157,13 +178,13 @@ public class BD_Producto extends SQLiteOpenHelper {
     }
 
     // Métodos de Gestión de Ventas
-
     public void realizar_Venta(@NonNull Venta sale) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_PRODUCT_ID, sale.getIdProducto());
         values.put(COLUMN_QUANTITY, sale.getCantidad());
         values.put(COLUMN_DATE, sale.getFecha());
+        values.put(COLUMN_TOTAL_PAGADO, sale.getTotalPagado());
 
         db.insert(TABLE_SALES, null, values);
         db.close();
@@ -173,22 +194,20 @@ public class BD_Producto extends SQLiteOpenHelper {
     public List<ReporteVenta> reporte_ventas() {
         List<ReporteVenta> reportList = new ArrayList<>();
         String selectQuery = "SELECT " + "p." + COLUMN_NAME + ", s." + COLUMN_DATE +
-                ", p." + COLUMN_PRICE + ", s." + COLUMN_QUANTITY +
-                ", (p." + COLUMN_PRICE + " * s." + COLUMN_QUANTITY + ") AS total_pagado " +
+                ", p." + COLUMN_PRICE + ", s." + COLUMN_QUANTITY + ", s." + COLUMN_TOTAL_PAGADO + " " +
                 "FROM " + TABLE_SALES + " s " +
-                "INNER JOIN " + TABLE_PRODUCTS + " p ON s." + COLUMN_PRODUCT_ID + " = p." + COLUMN_ID;
+                "JOIN " + TABLE_PRODUCTS + " p ON s." + COLUMN_PRODUCT_ID + " = p." + COLUMN_ID;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
                 ReporteVenta reporte = new ReporteVenta(
-                        cursor.getString(0), // Imagen del producto
-                        cursor.getString(1), // Nombre del producto
-                        cursor.getString(2), // Fecha
-                        cursor.getString(3), // Precio
-                        cursor.getInt(4),    // Cantidad
-                        cursor.getDouble(5)  // Total a pagar
+                        cursor.getString(0), // Nombre del producto
+                        cursor.getString(1), // Fecha
+                        cursor.getString(2), // Precio
+                        cursor.getInt(3),    // Cantidad
+                        cursor.getDouble(4)  // Total a pagar
                 );
                 reportList.add(reporte);
             } while (cursor.moveToNext());
@@ -217,5 +236,4 @@ public class BD_Producto extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
-
 }
