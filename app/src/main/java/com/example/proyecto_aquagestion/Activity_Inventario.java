@@ -30,7 +30,7 @@ public class Activity_Inventario extends AppCompatActivity {
         Intent agregar_productos_inventario = new Intent(this, Activity_lista_Productos.class);
         startActivity(agregar_productos_inventario);
     }
-//
+
     public void salir_inventario(View view) {
         Toast.makeText(this, "salir inventario", Toast.LENGTH_SHORT).show();
         Intent salir_inventario = new Intent(this, Activity_Menu_Principal.class);
