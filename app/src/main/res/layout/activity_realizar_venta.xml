@@ -13,7 +13,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:background="#AAFFFFFF"
+        android:background="@drawable/edittext_background"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
@@ -30,6 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/realizar_venta"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -39,9 +41,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="#DDDDDD"
+            android:background="@drawable/contenedor_login"
             android:padding="8dp"
-            android:textColorHint="#616161"
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
         <!-- Spinner para seleccionar productos -->
@@ -51,7 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:minHeight="48dp" />
+            android:background="@drawable/contenedor_login"
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp" />
 
         <!-- TextView para mostrar la descripción del producto -->
         <TextView
@@ -59,10 +68,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="#DDDDDD"
+            android:background="@drawable/contenedor_login"
             android:hint="@string/descripcion_producto"
             android:padding="8dp"
-            android:textColorHint="#616161" />
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp" />
 
         <!-- TextView para mostrar el precio del producto -->
         <TextView
@@ -70,10 +83,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="#DDDDDD"
+            android:background="@drawable/contenedor_login"
             android:hint="@string/precio_producto"
             android:padding="8dp"
-            android:textColorHint="#616161" />
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp" />
 
         <!-- EditText para ingresar la cantidad -->
         <EditText
@@ -81,10 +98,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:background="@drawable/contenedor_login"
             android:hint="@string/ingresar_cantidad"
             android:inputType="number"
             android:minHeight="48dp"
-            android:textColorHint="#37474F" />
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            tools:ignore="Autofill" />
 
         <!-- TextView para mostrar el total de la venta -->
         <TextView
@@ -92,10 +115,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="#DDDDDD"
+            android:background="@drawable/contenedor_login"
             android:hint="@string/total_venta"
             android:padding="8dp"
-            android:textColorHint="#616161" />
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp" />
 
         <!-- Botón para realizar la venta -->
         <Button
@@ -103,7 +130,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="#3F51B5"
             android:text="@string/btn_realizar_venta"
+            android:textStyle="bold"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <!-- Botón para cancelar la venta -->
@@ -111,8 +140,11 @@
             android:id="@+id/btnCancelarVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#DDF4F2"
             android:onClick="cancelar_venta"
-            android:text="@string/btn_cancelar_venta" />
+            android:text="@string/btn_cancelar_venta"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -29,14 +29,12 @@
         <activity
             android:name=".Activity_Reporte_Ventas"
             android:exported="false" />
-        <activity
-            android:name=".Activity_Productos"
-            android:exported="false" />
-        <!--
-<activity
-            android:name=".Activity_registrarProducto"
-            android:exported="false" />
-        -->
+<!--        <activity-->
+<!--            android:name=".Activity_Productos"-->
+<!--            android:exported="false" />-->
+<!--  <activity-->
+<!--            android:name=".Activity_registrarProducto"-->
+<!--            android:exported="false" />      -->
         <activity
             android:name=".Activity_Inventario"
             android:exported="false" />

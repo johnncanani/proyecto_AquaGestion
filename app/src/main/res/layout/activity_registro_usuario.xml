@@ -14,25 +14,26 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_marginTop="-30dp"
+        android:background="@drawable/edittext_background"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="350dp"
             android:layout_height="70dp"
-            android:background="@drawable/contendor_general"
             android:gravity="center"
             android:text="@string/string_titulo_RU"
-            android:textColor="@color/blanco"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@drawable/contendor_general"
+        android:background="@drawable/edittext_background"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="30dp">
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:width="0dp"
             android:text="@string/string_RU_usuario"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -52,27 +53,27 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:autofillHints=""
             android:width="0dp"
-            android:background="@drawable/contendor_general"
+            android:autofillHints=""
+            android:background="@drawable/contenedor_login"
             android:ems="10"
             android:hint="@string/input_RU_usuario"
             android:inputType="text"
             android:padding="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="@color/blanco"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:autofillHints=""
             android:width="0dp"
+            android:autofillHints=""
             android:text="@string/string_RU_correo"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -82,15 +83,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:width="0dp"
-            android:background="@drawable/contendor_general"
+            android:background="@drawable/contenedor_login"
             android:ems="10"
             android:hint="@string/input_RU_correo"
             android:inputType="text"
             android:padding="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="@color/blanco"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"
-            tools:ignore="Autofill,TouchTargetSizeCheck" />
+            tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck" />
 
         <TextView
             android:id="@+id/textView8"
@@ -99,7 +100,7 @@
             android:layout_marginTop="30dp"
             android:width="0dp"
             android:text="@string/string_RU_contrasenia1"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck" />
@@ -110,13 +111,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:width="0dp"
-            android:background="@drawable/contendor_general"
+            android:background="@drawable/contenedor_login"
             android:ems="10"
             android:hint="@string/input_RU_contrasenia"
             android:inputType="text|textPassword"
             android:padding="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="@color/blanco"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"
             tools:ignore="Autofill,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
@@ -127,7 +128,7 @@
             android:layout_marginTop="30dp"
             android:width="0dp"
             android:text="@string/string_RU_contrasenia2"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -137,36 +138,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:width="0dp"
-            android:background="@drawable/contendor_general"
+            android:background="@drawable/contenedor_login"
             android:ems="10"
             android:hint="@string/input_RU_contrasenia"
             android:inputType="text|textPassword"
             android:padding="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="@color/blanco"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"
             tools:ignore="Autofill,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btn_registro"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#3F51B5"
+            android:onClick="registro"
+            android:text="@string/btn_RU_registrar"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DDF4F2"
+            android:onClick="volver"
+            android:text="@string/btn_RU_cancelar"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_registro"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#4C874F"
-        android:onClick="registro"
-        android:text="@string/btn_RU_registrar"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btn_cancelar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFEFE"
-        android:onClick="volver"
-        android:text="@string/btn_RU_cancelar"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 </LinearLayout>

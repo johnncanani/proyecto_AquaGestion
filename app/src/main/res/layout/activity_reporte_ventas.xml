@@ -13,24 +13,29 @@
         android:id="@+id/textView10"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/contendor_general"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edittext_background"
         android:gravity="center"
         android:text="@string/string_titulo_RP"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textColor="@color/negro"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/blanco"
         android:onClick="salir_ventas"
         android:text="@string/btn_salir_RP"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -40,14 +45,16 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edittext_background"
         android:orientation="horizontal"
         android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/ivProductImage"
@@ -71,7 +78,9 @@
                 android:layout_marginBottom="8dp"
                 android:text="@string/repor_nombre_poducto"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -80,7 +89,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/repor_cant_pedido"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="15sp"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -89,7 +99,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/repor_precio_pedido"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="15sp"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -98,7 +109,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fecha_venta"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="15sp"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -107,7 +119,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/repor_tot_pag"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="15sp"
                 tools:ignore="HardcodedText" />
 
 
