@@ -1,4 +1,4 @@
-package com.example.proyecto_aquagestion;
+package com.example.proyecto_aquagestion.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.DAO.ProductoDAO;
+import com.example.proyecto_aquagestion.DAO.VentaDAO;
+import com.example.proyecto_aquagestion.Entidades.Producto;
 import com.example.proyecto_aquagestion.Entidades.Venta;
+import com.example.proyecto_aquagestion.R;
 
 public class Activity_confirmar_venta extends AppCompatActivity {
 
     private TextView tvDatosVenta;
     private Button btnConfirmarVenta;
     private Button btnEditarVenta;
+
+    private ProductoDAO productoDAO;
+    private VentaDAO ventaDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,9 @@ public class Activity_confirmar_venta extends AppCompatActivity {
         btnConfirmarVenta = findViewById(R.id.btnConfirmarVenta);
         btnEditarVenta = findViewById(R.id.btnEditarVenta);
 
+        productoDAO = new ProductoDAO(this);
+        ventaDAO = new VentaDAO(this);
+
         // Obtener los datos de la venta
         Intent intent = getIntent();
         String datosVenta = intent.getStringExtra("datosVenta");
@@ -49,32 +58,37 @@ public class Activity_confirmar_venta extends AppCompatActivity {
     }
 
     public void confirmarVenta(View view) {
-        BD_Producto dbHelper = new BD_Producto(this);
-
         // Obtener los datos de la venta del TextView
         String[] datos = tvDatosVenta.getText().toString().split("\n");
-        String producto = datos[0].split(": ")[1];
+        String productoNombre = datos[0].split(": ")[1];
         int cantidad = Integer.parseInt(datos[1].split(": ")[1]);
         String fecha = datos[2].split(": ")[1];
         double total = Double.parseDouble(datos[4].split(": ")[1]);
 
-        // Obtener el ID del producto
-        int idProducto = dbHelper.getProductByName(producto).getId();
+        // Obtener el producto por su nombre
+        Producto producto = productoDAO.getProductByName(productoNombre);
 
         // Crear la venta y guardarla en la base de datos
-        Venta venta = new Venta(0, idProducto, cantidad, fecha, total);
-        dbHelper.realizar_Venta(venta);
+        Venta venta = new Venta(producto.getId(), cantidad, fecha, total);
+        long idVenta = ventaDAO.registrarVenta(venta);
 
-        Toast.makeText(this, "Venta confirmada", Toast.LENGTH_SHORT).show();
+        if (idVenta != -1) {
+            // Actualizar el stock del producto
+            productoDAO.updateProductQuantity(producto.getId(), producto.getCantidad() - cantidad);
 
-        // Pasar los datos de la venta a Activity_Reporte_Ventas
-        Intent confirmar_venta = new Intent(this, Activity_Reporte_Ventas.class);
-        confirmar_venta.putExtra("producto", producto);
-        confirmar_venta.putExtra("cantidad", cantidad);
-        confirmar_venta.putExtra("fecha", fecha);
-        confirmar_venta.putExtra("total", total);
-        startActivity(confirmar_venta);
-        finish();
+            Toast.makeText(this, "Venta confirmada", Toast.LENGTH_SHORT).show();
+
+            // Pasar los datos de la venta a Activity_Reporte_Ventas
+            Intent confirmar_venta = new Intent(this, Activity_Reporte_Ventas.class);
+            confirmar_venta.putExtra("producto", productoNombre);
+            confirmar_venta.putExtra("cantidad", cantidad);
+            confirmar_venta.putExtra("fecha", fecha);
+            confirmar_venta.putExtra("total", total);
+            startActivity(confirmar_venta);
+            finish();
+        } else {
+            Toast.makeText(this, "Error al confirmar la venta", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void editarVenta(View view) {

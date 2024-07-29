@@ -108,4 +108,6 @@
     <string name="fecha_venta">Fecha de la Venta</string>
     <string name="repor_tot_pag">Total a Pagar</string>
     <string name="btn_eliminar_repor">Eliminar</string>
+
+    <string name="back_button">Back</string>
 </resources>

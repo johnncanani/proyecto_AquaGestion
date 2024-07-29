@@ -1,50 +1,98 @@
 package com.example.proyecto_aquagestion.Entidades;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private String name;
-    private String capacity;
-    private String description;
-    private String price;
-    private String imageUri;
+    private String type;
+    private double volume;
+    private double price;
+    private byte[] image;
+    private int cantidad;  // Nuevo atributo cantidad
 
-    public Producto(int id, String name, String capacity, String description, String price, String imageUri) {
+    // Constructor sin parámetros (opcional)
+    public Producto() {}
+
+    public Producto(String name, String type, double volume, double price, byte[] image, int cantidad) {
+        this.name = name;
+        this.type = type;
+        this.volume = volume;
+        this.price = price;
+        this.image = image;
+        this.cantidad = cantidad;
+    }
+
+    public Producto(int id, String name, String type, double volume, double price, byte[] image, int cantidad) {
         this.id = id;
         this.name = name;
-        this.capacity = capacity;
-        this.description = description;
+        this.type = type;
+        this.volume = volume;
         this.price = price;
-        this.imageUri = imageUri;
+        this.image = image;
+        this.cantidad = cantidad;
     }
 
-    public Producto(String name, String capacity, String description, String price, String imageUri) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
-        this.capacity = capacity;
-        this.description = description;
-        this.price = price;
-        this.imageUri = imageUri;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public String getType() {
+        return type;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-    public String getCapacity() { return capacity; }
-    public void setCapacity(String capacity) { this.capacity = capacity; }
+    public double getVolume() {
+        return volume;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
 
-    public String getPrice() { return price; }
-    public void setPrice(String price) { this.price = price; }
+    public double getPrice() {
+        return price;
+    }
 
-    public String getImageUri() { return imageUri; }
-    public void setImageUri(String imageUri) { this.imageUri = imageUri; }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
     @Override
     public String toString() {
-        return name; // Retorna solo el nombre del producto
+        return name; // Mostrar solo el nombre en el Spinner
     }
 }

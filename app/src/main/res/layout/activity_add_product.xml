@@ -1,90 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@drawable/fondo_general">
 
-    <EditText
-        android:id="@+id/etProductName"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/string_nombre_poducto"
-        android:inputType="text"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+        android:orientation="vertical"
+        android:background="@drawable/edittext_background"
+        android:padding="10dp">
 
-    <EditText
-        android:id="@+id/etProductCapacity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/string_capacidad_producto"
-        android:inputType="number"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etProductName"
-        tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/etProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:hint="Nombre del producto"
+            android:padding="10dp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
 
-    <EditText
-        android:id="@+id/etProductDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/string_descripcion_producto"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etProductCapacity"
-        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/etProductType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo de producto"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
-    <EditText
-        android:id="@+id/etProductPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/string_precio_producto"
-        android:inputType="numberDecimal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etProductDescription"
-        tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/etProductVolume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Volumen"
+            android:inputType="numberDecimal"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
-    <ImageView
-        android:id="@+id/ivProductImage"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray"
-        android:contentDescription="@string/reporte_Img_producto"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etProductPrice"
-        tools:ignore="ImageContrastCheck" />
+        <EditText
+            android:id="@+id/etProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:inputType="numberDecimal"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
-    <Button
-        android:id="@+id/btnSelectImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/string_btn_selecionar_imagen"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivProductImage"
-        tools:ignore="VisualLintButtonSize" />
+        <EditText
+            android:id="@+id/etProductCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:inputType="number"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
-    <Button
-        android:id="@+id/btnAddProduct"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/string_btn_agregar_producto"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSelectImage"
-        tools:ignore="VisualLintButtonSize" />
+        <ImageView
+            android:id="@+id/ivProductImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop"
+            android:src="@android:color/transparent"
+            android:contentDescription="@string/string_producto_img_descripcion"
+            tools:ignore="ImageContrastCheck" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cargar Imagen"
+            android:backgroundTint="#3F51B5"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btnSaveProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Producto"
+            android:backgroundTint="#DDF4F2"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regresar"
+            android:backgroundTint="#DDF4F2"
+            android:textColor="@color/black"
+            android:layout_gravity="start"
+            android:layout_margin="16dp"/>
+    </LinearLayout>
+</ScrollView>

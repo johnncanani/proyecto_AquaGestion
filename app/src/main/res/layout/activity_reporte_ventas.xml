@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_general"
-    tools:context=".Activity_Reporte_Ventas"
-    tools:ignore="VisualLintBounds">
+    tools:context=".Actividades.Activity_Reporte_Ventas">
 
     <TextView
         android:id="@+id/textView10"
@@ -28,8 +27,8 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="114dp"
+        android:layout_height="68dp"
         android:backgroundTint="@color/blanco"
         android:onClick="salir_ventas"
         android:text="@string/btn_salir_RP"
@@ -40,91 +39,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewVentas"
         app:layout_constraintVertical_bias="0.77" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="350dp"
+    <Button
+        android:id="@+id/buttonExportarPDF"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edittext_background"
-        android:orientation="horizontal"
-        android:padding="8dp"
+        android:text="Exportar PDF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView10"
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewVentas"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintVertical_bias="0.1"
+        android:onClick="exportarPDF"/>
 
-        <ImageView
-            android:id="@+id/ivProductImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/baseline_water_drop_24"
-            android:contentDescription="@string/repor_imagen_producto" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="112dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingStart="8dp"
-            tools:ignore="RtlSymmetry,TextSizeCheck">
-
-            <TextView
-                android:id="@+id/tvProductName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/repor_nombre_poducto"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/tvProductQuantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/repor_cant_pedido"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/tvProductPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/repor_precio_pedido"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/etFecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fecha_venta"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/tvTotalPago"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/repor_tot_pag"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                tools:ignore="HardcodedText" />
-
-
-        </LinearLayout>
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewVentas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonExportarPDF"
+        app:layout_constraintBottom_toTopOf="@id/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:ignore="MissingConstraints"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

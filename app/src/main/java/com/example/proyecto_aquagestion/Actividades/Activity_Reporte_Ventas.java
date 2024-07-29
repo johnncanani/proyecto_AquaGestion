@@ -1,10 +1,9 @@
-package com.example.proyecto_aquagestion;
+package com.example.proyecto_aquagestion.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -12,14 +11,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.R;
+import com.example.proyecto_aquagestion.Adaptadores.VentaAdapter;
+import com.example.proyecto_aquagestion.DAO.ProductoDAO;
+import com.example.proyecto_aquagestion.DAO.VentaDAO;
+import com.example.proyecto_aquagestion.Entidades.Producto;
+import com.example.proyecto_aquagestion.Entidades.Venta;
+
+import java.util.List;
 
 public class Activity_Reporte_Ventas extends AppCompatActivity {
 
-    private TextView tvProductName, tvProductQuantity, tvProductPrice, tvTotalPago, tvFecha;
+    private RecyclerView recyclerViewVentas;
     private Button buttonSalir;
-    private BD_Producto bdProducto;
+    private VentaDAO ventaDAO;
+    private ProductoDAO productoDAO;
+    private List<Venta> listaVentas;
+    private List<Producto> listaProductos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,26 +44,21 @@ public class Activity_Reporte_Ventas extends AppCompatActivity {
             return insets;
         });
 
-        tvProductName = findViewById(R.id.tvProductName);
-        tvProductQuantity = findViewById(R.id.tvProductQuantity);
-        tvProductPrice = findViewById(R.id.tvProductPrice);
-        tvTotalPago = findViewById(R.id.tvTotalPago);
-        tvFecha = findViewById(R.id.etFecha);
+        recyclerViewVentas = findViewById(R.id.recyclerViewVentas);
         buttonSalir = findViewById(R.id.button4);
 
-        // Obtener datos pasados desde Activity_confirmar_venta
-        Intent intent = getIntent();
-        String producto = intent.getStringExtra("producto");
-        int cantidad = intent.getIntExtra("cantidad", 0);
-        String fecha = intent.getStringExtra("fecha");
-        double total = intent.getDoubleExtra("total", 0.0);
+        // Inicializar DAO
+        ventaDAO = new VentaDAO(this);
+        productoDAO = new ProductoDAO(this);
 
-        // Mostrar los datos en los TextView
-        tvProductName.setText("Nombre del porducto "+producto);
-        tvProductQuantity.setText(String.valueOf("cantidad del producto: "+cantidad));
-        tvProductPrice.setText(String.valueOf("precio: "+total / cantidad)); // Asumiendo que total es la suma de precios
-        tvTotalPago.setText(String.valueOf("Total S./ "+total));
-        tvFecha.setText("Fecha: "+fecha);
+        // Obtener datos
+        listaVentas = ventaDAO.obtenerTodasLasVentas();
+        listaProductos = productoDAO.getAllProducts();
+
+        // Configurar RecyclerView
+        VentaAdapter adapter = new VentaAdapter(listaVentas, listaProductos);
+        recyclerViewVentas.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewVentas.setAdapter(adapter);
 
         buttonSalir.setOnClickListener(this::salir_ventas);
     }
