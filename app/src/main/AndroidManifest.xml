@@ -12,50 +12,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_AquaGestion"
         tools:targetApi="31">
+
         <activity
-            android:name=".Activity_confirmar_venta"
+            android:name=".Actividades.Activity_confirmar_venta"
             android:exported="false" />
         <activity
-            android:name=".Activity_realizar_venta"
-            android:exported="false" />
-        <!--
-<activity
-            android:name=".Activity_ventas"
-            android:exported="false" />
-        -->
+            android:name=".Actividades.Activity_realizar_venta"
+            android:exported="true" />
         <activity
-            android:name=".Activity_Menu_Principal"
+            android:name=".Actividades.Activity_Menu_Principal"
             android:exported="false" />
         <activity
-            android:name=".Activity_Reporte_Ventas"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".Activity_Productos"-->
-<!--            android:exported="false" />-->
-<!--  <activity-->
-<!--            android:name=".Activity_registrarProducto"-->
-<!--            android:exported="false" />      -->
-        <activity
-            android:name=".Activity_Inventario"
+            android:name=".Actividades.Activity_Reporte_Ventas"
             android:exported="false" />
         <activity
-            android:name=".Activity_registroUsuario"
+            android:name=".Actividades.InventoryActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity_lista_Productos"
-            android:exported="true"></activity>
+            android:name=".Actividades.Activity_registroUsuario"
+            android:exported="false" />
         <activity
-            android:name=".Activity_agregar_Producto"
-            android:exported="true"></activity>
+            android:name=".Actividades.ProductListActivity"
+            android:exported="true" />
         <activity
-            android:name=".Entidades.Editar_Producto"
-            android:exported="true"></activity>
+            android:name=".Actividades.AddProductActivity"
+            android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Actividades.EditProductActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Actividades.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

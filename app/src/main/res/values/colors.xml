@@ -63,5 +63,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="color_personalizado">#88CDC7</color>
+
+    <color name="primaryColor">#6200EE</color>
+    <color name="primaryDarkColor">#3700B3</color>
+    <color name="accentColor">#03DAC5</color>
+
 </resources>
 

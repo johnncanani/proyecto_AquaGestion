@@ -8,7 +8,7 @@
     android:background="@drawable/fondo"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Actividades.MainActivity">
 
     <TextView
         android:id="@+id/textView2"

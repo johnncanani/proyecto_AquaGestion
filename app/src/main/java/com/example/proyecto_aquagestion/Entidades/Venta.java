@@ -5,9 +5,13 @@ public class Venta {
     private int idProducto;
     private int cantidad;
     private String fecha;
-    private double totalPagado; // Agregado
+    private double totalPagado;
 
-    public Venta() {
+    public Venta(int idProducto, int cantidad, String fecha, double totalPagado) {
+        this.idProducto = idProducto;
+        this.cantidad = cantidad;
+        this.fecha = fecha;
+        this.totalPagado = totalPagado;
     }
 
     public Venta(int id, int idProducto, int cantidad, String fecha, double totalPagado) {
@@ -22,36 +26,36 @@ public class Venta {
         return id;
     }
 
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public double getTotalPagado() {
-        return totalPagado;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
     }
 
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public double getTotalPagado() {
+        return totalPagado;
     }
 
     public void setTotalPagado(double totalPagado) {

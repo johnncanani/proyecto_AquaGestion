@@ -1,4 +1,4 @@
-package com.example.proyecto_aquagestion;
+package com.example.proyecto_aquagestion.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +12,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.DAO.UsuarioDAO;
+import com.example.proyecto_aquagestion.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText et_usuario;
     private EditText et_contrasenia;
 
-    private BD_Producto bdProducto;
+    private UsuarioDAO usuarioDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         et_usuario = findViewById(R.id.txt_usuario);
         et_contrasenia = findViewById(R.id.txt_contrasenia);
 
-        bdProducto = new BD_Producto(this);
+        usuarioDAO = new UsuarioDAO(this);
     }
 
     public void registrar(View view) {
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (campos_validados.isEmpty()) {
             try {
-                if (bdProducto.checkUser(usuario, contrasenia)) {
+                if (usuarioDAO.verificarUsuario(usuario, contrasenia)) {
                     Toast.makeText(this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();
                     Intent ingresar = new Intent(this, Activity_Menu_Principal.class);
                     startActivity(ingresar);
@@ -61,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             } catch (Exception ex) {
                 Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
-            } finally {
-                // No es necesario cerrar la base de datos aquí, ya que `bdProducto` maneja esto internamente
             }
         } else {
             Toast.makeText(this, campos_validados, Toast.LENGTH_SHORT).show();

@@ -1,82 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_Inventario"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:background="@drawable/fondo_general"
-    tools:ignore="VisualLintBounds">
+    tools:context=".InventoryActivity">
 
-    <!-- Título de la Pantalla -->
+    <!-- Título -->
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
-        android:gravity="center_vertical"
-        android:text="@string/inventario_productos"
-        android:textAlignment="center"
-        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gestión de Inventario"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="@color/black"
         tools:ignore="TextSizeCheck" />
 
-    <!-- Lista de Productos -->
-
-    <!-- Botón para Agregar Producto -->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
-        android:layout_width="350dp"
-        android:layout_height="550dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext_background"
-        android:paddingStart="10dp"
-        android:paddingEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
-    <LinearLayout
-        android:layout_width="350dp"
+    <!-- Barra de búsqueda -->
+    <EditText
+        android:id="@+id/etSearchInventory"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:background="#FFFFFF"
+        android:hint="Buscar producto"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edittext_background" />
+
+    <!-- Botones de acción rápida -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView2">
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="#FFFFFF">
 
         <Button
-            android:id="@+id/btnAddProduct"
-            android:layout_width="170dp"
+            android:id="@+id/btnAddStock"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="16dp"
+            android:text="Agregar Stock"
+            android:layout_marginEnd="16dp"
             android:backgroundTint="#3F51B5"
-            android:onClick="agregar_productos_invetario"
-            android:text="@string/btn_agregar_producto"
-            android:textColor="@color/fondo_oscuro" />
+            android:textColor="@color/fondo_oscuro"
+            android:onClick="agregar_productos_invetario" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="170dp"
+            android:id="@+id/btnRemoveStock"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="16dp"
+            android:text="Quitar Stock"
             android:backgroundTint="#DDF4F2"
-            android:onClick="salir_inventario"
-            android:text="@string/btn_cancelar_productos"
-            android:textColor="#020202" />
+            android:textColor="#020202"
+            android:onClick="salir_inventario" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ListView de Inventario -->
+    <ListView
+        android:id="@+id/inventoryListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:background="@drawable/edittext_background"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp" />
+
+</LinearLayout>

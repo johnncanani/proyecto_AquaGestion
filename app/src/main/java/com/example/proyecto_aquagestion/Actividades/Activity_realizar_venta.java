@@ -1,4 +1,4 @@
-package com.example.proyecto_aquagestion;
+package com.example.proyecto_aquagestion.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,8 +19,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
 import com.example.proyecto_aquagestion.Entidades.Producto;
+import com.example.proyecto_aquagestion.DAO.ProductoDAO;
+import com.example.proyecto_aquagestion.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,7 +30,7 @@ import java.util.Locale;
 
 public class Activity_realizar_venta extends AppCompatActivity {
 
-    private BD_Producto dbHelper;
+    private ProductoDAO productoDAO;
     private TextView tvFecha;
     private Spinner spinnerProductos;
     private TextView tvDescripcionProducto;
@@ -38,6 +39,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
     private TextView tvTotalVenta;
     private Button btnRealizarVenta;
     private Button btnCancelarVenta;
+    private Producto productoSeleccionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
             return insets;
         });
 
-        dbHelper = new BD_Producto(this);
+        productoDAO = new ProductoDAO(this);
 
         // Inicializar las vistas
         tvFecha = findViewById(R.id.tvFecha);
@@ -71,7 +73,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
 
         // Configurar los botones
         btnRealizarVenta.setOnClickListener(this::realizarVenta);
-        btnCancelarVenta.setOnClickListener(this::cancelar_venta);
+        btnCancelarVenta.setOnClickListener(this::cancelarVenta);
 
         // Verificar si se están editando datos
         Intent intent = getIntent();
@@ -83,7 +85,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
     }
 
     private void cargarProductosEnSpinner() {
-        List<Producto> productos = dbHelper.getAllProducts();
+        List<Producto> productos = productoDAO.getAllProducts();
         ArrayAdapter<Producto> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, productos);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProductos.setAdapter(adapter);
@@ -91,9 +93,9 @@ public class Activity_realizar_venta extends AppCompatActivity {
         spinnerProductos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Producto productoSeleccionado = (Producto) parent.getItemAtPosition(position);
-                tvDescripcionProducto.setText(productoSeleccionado.getDescription());
-                tvPrecioProducto.setText(productoSeleccionado.getPrice());
+                productoSeleccionado = (Producto) parent.getItemAtPosition(position);
+                tvDescripcionProducto.setText(productoSeleccionado.getType());
+                tvPrecioProducto.setText(String.valueOf(productoSeleccionado.getPrice()));
                 calcularTotalVenta();
             }
 
@@ -107,10 +109,10 @@ public class Activity_realizar_venta extends AppCompatActivity {
 
         etCantidad.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -134,25 +136,29 @@ public class Activity_realizar_venta extends AppCompatActivity {
     }
 
     public void realizarVenta(View view) {
-        String producto = spinnerProductos.getSelectedItem().toString();
-        String cantidad = etCantidad.getText().toString();
-        String fecha = tvFecha.getText().toString();
-        String descripcion = tvDescripcionProducto.getText().toString();
-        String total = tvTotalVenta.getText().toString();
+        if (productoSeleccionado != null && !etCantidad.getText().toString().isEmpty()) {
+            String producto = productoSeleccionado.getName();
+            String cantidad = etCantidad.getText().toString();
+            String fecha = tvFecha.getText().toString();
+            String descripcion = tvDescripcionProducto.getText().toString();
+            String total = tvTotalVenta.getText().toString();
 
-        // Formar el string de datos de la venta
-        String datosVenta = "Producto: " + producto + "\nCantidad: " + cantidad + "\nFecha: " + fecha + "\nDescripción: " + descripcion + "\nTotal: " + total;
+            // Formar el string de datos de la venta
+            String datosVenta = "Producto: " + producto + "\nCantidad: " + cantidad + "\nFecha: " + fecha + "\nDescripción: " + descripcion + "\nTotal: " + total;
 
-        // Pasar los datos a la actividad de confirmación
-        Intent confirmarVentaIntent = new Intent(Activity_realizar_venta.this, Activity_confirmar_venta.class);
-        confirmarVentaIntent.putExtra("datosVenta", datosVenta);
-        startActivity(confirmarVentaIntent);
+            // Pasar los datos a la actividad de confirmación
+            Intent confirmarVentaIntent = new Intent(Activity_realizar_venta.this, Activity_confirmar_venta.class);
+            confirmarVentaIntent.putExtra("datosVenta", datosVenta);
+            startActivity(confirmarVentaIntent);
+        } else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void cancelar_venta(View view) {
+    public void cancelarVenta(View view) {
         Toast.makeText(this, "Venta cancelada", Toast.LENGTH_SHORT).show();
-        Intent venta_cancelar = new Intent(this, Activity_Menu_Principal.class);
-        startActivity(venta_cancelar);
+        Intent ventaCancelar = new Intent(this, Activity_Menu_Principal.class);
+        startActivity(ventaCancelar);
     }
 
     private void cargarDatosParaEdicion(String datosVenta) {
@@ -173,7 +179,7 @@ public class Activity_realizar_venta extends AppCompatActivity {
         // Seleccionar el producto en el spinner
         ArrayAdapter<Producto> adapter = (ArrayAdapter<Producto>) spinnerProductos.getAdapter();
         for (int i = 0; i < adapter.getCount(); i++) {
-            if (adapter.getItem(i).toString().equals(producto)) {
+            if (adapter.getItem(i).getName().equals(producto)) {
                 spinnerProductos.setSelection(i);
                 break;
             }

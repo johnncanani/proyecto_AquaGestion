@@ -1,4 +1,4 @@
-package com.example.proyecto_aquagestion;
+package com.example.proyecto_aquagestion.Actividades;
 
 import android.content.Intent;
 import android.database.SQLException;
@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.proyecto_aquagestion.BaseDatos.BD_Producto;
+import com.example.proyecto_aquagestion.DAO.UsuarioDAO;
+import com.example.proyecto_aquagestion.R;
 
 public class Activity_registroUsuario extends AppCompatActivity {
 
@@ -22,12 +22,11 @@ public class Activity_registroUsuario extends AppCompatActivity {
     private EditText et_contrasenia1;
     private EditText et_contrasenia2;
 
-    private BD_Producto bdProducto;
+    private UsuarioDAO usuarioDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registro_usuario);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -40,7 +39,7 @@ public class Activity_registroUsuario extends AppCompatActivity {
         et_contrasenia1 = findViewById(R.id.txt_contrasenia1);
         et_contrasenia2 = findViewById(R.id.txt_contrasenia2);
 
-        bdProducto = new BD_Producto(this);
+        usuarioDAO = new UsuarioDAO(this);
     }
 
     public void volver(View view) {
@@ -60,7 +59,7 @@ public class Activity_registroUsuario extends AppCompatActivity {
 
         if (datos_llenos_validados.isEmpty()) {
             try {
-                bdProducto.addUser(usuario, correo, contrasenia1);
+                usuarioDAO.agregarUsuario(usuario, correo, contrasenia1);
                 Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                 Intent registro = new Intent(this, MainActivity.class);
                 startActivity(registro);

@@ -1,85 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_general"
-    android:padding="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@drawable/fondo_general">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext_background"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@drawable/edittext_background"
+        android:padding="10dp">
 
         <EditText
             android:id="@+id/etProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_producto_nombre"
-            android:inputType="text"
-            tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+            android:hint="Nombre del producto"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
         <EditText
-            android:id="@+id/etProductCapacity"
+            android:id="@+id/etProductType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_producto_capacidad"
-            android:inputType="number"
-            tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+            android:hint="Tipo de producto"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
         <EditText
-            android:id="@+id/etProductDescription"
+            android:id="@+id/etProductVolume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_producto_descripcion"
-            android:inputType="text"
-            tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+            android:hint="Volumen"
+            android:inputType="numberDecimal"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
         <EditText
             android:id="@+id/etProductPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_producto_precio"
+            android:hint="Precio"
             android:inputType="numberDecimal"
-            tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/etProductCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:inputType="number"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            tools:ignore="Autofill" />
 
         <ImageView
             android:id="@+id/ivProductImage"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop"
+            android:src="@android:color/transparent"
             android:contentDescription="@string/string_producto_img_descripcion"
             tools:ignore="ImageContrastCheck" />
 
         <Button
             android:id="@+id/btnSelectImage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:text="Cargar Imagen"
             android:backgroundTint="#3F51B5"
-            android:text="@string/string_btn_seleccionar_img"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="VisualLintButtonSize" />
 
         <Button
-            android:id="@+id/btnUpdateProduct"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnSaveProduct"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:text="Guardar Cambios"
             android:backgroundTint="#DDF4F2"
-            android:text="@string/string_btn_actualizar_producto"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regresar"
+            android:backgroundTint="#DDF4F2"
+            android:textColor="@color/black"
+            android:layout_gravity="start"
+            android:layout_margin="16dp"/>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
