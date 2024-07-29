@@ -16,49 +16,51 @@
             android:id="@+id/etProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre del producto"
             android:background="@drawable/edittext_background"
+            android:hint="Nombre del producto"
+            android:inputType="text"
             android:padding="10dp"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/etProductType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tipo de producto"
             android:background="@drawable/edittext_background"
+            android:hint="Tipo de producto"
+            android:inputType="text"
             android:padding="10dp"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/etProductVolume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:hint="Volumen"
             android:inputType="numberDecimal"
-            android:background="@drawable/edittext_background"
             android:padding="10dp"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/etProductPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:hint="Precio"
             android:inputType="numberDecimal"
-            android:background="@drawable/edittext_background"
             android:padding="10dp"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/etProductCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:hint="Cantidad"
             android:inputType="number"
-            android:background="@drawable/edittext_background"
             android:padding="10dp"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <ImageView
             android:id="@+id/ivProductImage"
@@ -80,7 +82,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btnSaveProduct"
@@ -91,7 +93,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btnBack"
@@ -101,6 +103,7 @@
             android:backgroundTint="#DDF4F2"
             android:textColor="@color/black"
             android:layout_gravity="start"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>

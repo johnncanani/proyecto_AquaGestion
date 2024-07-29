@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -12,7 +13,9 @@
         android:layout_width="75dp"
         android:layout_height="98dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/default_image" />
+        android:contentDescription="@string/reporte_Img_producto"
+        android:src="@drawable/default_image"
+        tools:ignore="ImageContrastCheck" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -27,7 +30,8 @@
             android:text="Producto: "
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/negro" />
+            android:textColor="@color/negro"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvProductQuantity"
@@ -35,7 +39,8 @@
             android:layout_height="wrap_content"
             android:text="Cantidad: "
             android:textSize="14sp"
-            android:textColor="@color/negro" />
+            android:textColor="@color/negro"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvProductPrice"
@@ -43,7 +48,8 @@
             android:layout_height="wrap_content"
             android:text="Precio: "
             android:textSize="14sp"
-            android:textColor="@color/negro" />
+            android:textColor="@color/negro"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvTotalPago"
@@ -51,7 +57,8 @@
             android:layout_height="wrap_content"
             android:text="Total: "
             android:textSize="14sp"
-            android:textColor="@color/negro" />
+            android:textColor="@color/negro"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvFecha"
@@ -59,7 +66,8 @@
             android:layout_height="wrap_content"
             android:text="Fecha: "
             android:textSize="14sp"
-            android:textColor="@color/negro" />
+            android:textColor="@color/negro"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <ImageButton
@@ -70,5 +78,6 @@
         android:contentDescription="Eliminar"
         android:padding="8dp"
         android:src="@android:drawable/ic_menu_delete"
-        app:tint="@color/negro" />
+        app:tint="@color/negro"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

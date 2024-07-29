@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -10,7 +11,9 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/default_image" />
+        android:contentDescription="@string/reporte_Img_producto"
+        android:src="@drawable/default_image"
+        tools:ignore="ImageContrastCheck" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -25,7 +28,8 @@
             android:text="Nombre del producto"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/productVolume"
@@ -33,7 +37,8 @@
             android:layout_height="wrap_content"
             android:text="Volumen: 0.0"
             android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
         <TextView
             android:id="@+id/productStock"
@@ -41,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="Stock: 0"
             android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
     </LinearLayout>
 </LinearLayout>

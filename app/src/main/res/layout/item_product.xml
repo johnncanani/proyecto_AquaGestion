@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -10,7 +11,9 @@
         android:layout_width="75dp"
         android:layout_height="98dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/default_image" />
+        android:contentDescription="@string/reporte_Img_producto"
+        android:src="@drawable/default_image"
+        tools:ignore="ImageContrastCheck" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -24,7 +27,8 @@
             android:layout_height="wrap_content"
             android:text="Product Name"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvProductVolume"
@@ -32,7 +36,8 @@
             android:layout_height="wrap_content"
             android:text="Volumen: 0.0"
             android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
         <TextView
             android:id="@+id/tvProductPrice"
@@ -40,7 +45,8 @@
             android:layout_height="wrap_content"
             android:text="Precio: 0.0"
             android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
         <TextView
             android:id="@+id/tvProductQuantity"
@@ -48,7 +54,8 @@
             android:layout_height="wrap_content"
             android:text="Cantidad: 0"
             android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
     </LinearLayout>
 
@@ -62,14 +69,16 @@
             android:id="@+id/btnEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="Editar"
             android:src="@android:drawable/ic_menu_edit"
-            android:contentDescription="Editar" />
+            tools:ignore="HardcodedText,ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="Eliminar"
             android:src="@android:drawable/ic_menu_delete"
-            android:contentDescription="Eliminar" />
+            tools:ignore="HardcodedText,ImageContrastCheck" />
     </LinearLayout>
 </LinearLayout>
