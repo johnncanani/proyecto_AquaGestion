@@ -33,6 +33,7 @@
         android:drawableStart="@android:drawable/ic_menu_search"
         android:hint="Buscar producto"
         android:inputType="text"
+        android:maxLength="30"
         android:padding="12dp"
         tools:ignore="Autofill,HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
 

@@ -3,6 +3,7 @@ package com.example.proyecto_aquagestion.Actividades;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.proyecto_aquagestion.DAO.UsuarioDAO;
 import com.example.proyecto_aquagestion.R;
+
+import java.util.regex.Pattern;
 
 public class Activity_registroUsuario extends AppCompatActivity {
 
@@ -76,6 +79,8 @@ public class Activity_registroUsuario extends AppCompatActivity {
             return "Rellene su usuario";
         } else if (correo.isEmpty()) {
             return "Rellene su correo";
+        } else if (!validarEmail(correo)) {
+            return "correo no valido";
         } else if (cont1.isEmpty()) {
             return "Rellene su contraseña";
         } else if (cont2.isEmpty()) {
@@ -85,5 +90,11 @@ public class Activity_registroUsuario extends AppCompatActivity {
         } else {
             return "";
         }
+    }
+
+    //validando correo
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 }

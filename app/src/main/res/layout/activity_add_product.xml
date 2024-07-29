@@ -19,6 +19,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Nombre del producto"
             android:inputType="text"
+            android:maxLength="30"
             android:padding="10dp"
             tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
 
@@ -29,6 +30,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Tipo de producto"
             android:inputType="text"
+            android:maxLength="30"
             android:padding="10dp"
             tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
@@ -39,6 +41,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Volumen"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:padding="10dp"
             tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
@@ -49,6 +52,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Precio"
             android:inputType="numberDecimal"
+            android:maxLength="10"
             android:padding="10dp"
             tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
@@ -59,6 +63,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Cantidad"
             android:inputType="number"
+            android:maxLength="5"
             android:padding="10dp"
             tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 

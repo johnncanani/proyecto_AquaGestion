@@ -17,6 +17,7 @@
         android:background="@drawable/edittext_background"
         android:hint="Buscar producto por nombre"
         android:inputType="text"
+        android:maxLength="30"
         tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
 
     <Button
