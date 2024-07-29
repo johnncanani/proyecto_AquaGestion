@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@drawable/fondo_general"
-    tools:context=".InventoryActivity">
+    tools:context=".InventoryActivity"
+    tools:ignore="VisualLintBounds">
 
     <!-- Título -->
     <TextView
@@ -20,18 +21,21 @@
         android:padding="16dp"
         android:background="@drawable/edittext_background"
         android:textColor="@color/black"
-        tools:ignore="TextSizeCheck" />
+        tools:ignore="HardcodedText,TextSizeCheck" />
 
     <!-- Barra de búsqueda -->
     <EditText
         android:id="@+id/etSearchInventory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar producto"
-        android:drawableStart="@android:drawable/ic_menu_search"
-        android:padding="12dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/edittext_background" />
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:hint="Buscar producto"
+        android:inputType="text"
+        android:maxLength="30"
+        android:padding="12dp"
+        tools:ignore="Autofill,HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
 
     <!-- Botones de acción rápida -->
     <LinearLayout
@@ -46,11 +50,12 @@
             android:id="@+id/btnAddStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar Stock"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#3F51B5"
+            android:onClick="agregar_productos_invetario"
+            android:text="Agregar Stock"
             android:textColor="@color/fondo_oscuro"
-            android:onClick="agregar_productos_invetario" />
+            tools:ignore="ButtonStyle,HardcodedText,TextContrastCheck" />
 
         <Button
             android:id="@+id/btnRemoveStock"
@@ -59,7 +64,8 @@
             android:text="Quitar Stock"
             android:backgroundTint="#DDF4F2"
             android:textColor="#020202"
-            android:onClick="salir_inventario" />
+            android:onClick="salir_inventario"
+            tools:ignore="ButtonStyle,HardcodedText" />
     </LinearLayout>
 
     <!-- ListView de Inventario -->

@@ -12,7 +12,7 @@
         android:id="@+id/textView10"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/edittext_background"
         android:gravity="center"
         android:text="@string/string_titulo_RP"
@@ -25,10 +25,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextSizeCheck" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewVentas"
+        android:layout_width="0dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/button4"
         android:layout_width="114dp"
-        android:layout_height="68dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/blanco"
         android:onClick="salir_ventas"
         android:text="@string/btn_salir_RP"
@@ -39,31 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewVentas"
-        app:layout_constraintVertical_bias="0.77" />
-
-    <Button
-        android:id="@+id/buttonExportarPDF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exportar PDF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView10"
-        app:layout_constraintBottom_toTopOf="@id/recyclerViewVentas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        android:onClick="exportarPDF"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewVentas"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/buttonExportarPDF"
-        app:layout_constraintBottom_toTopOf="@id/button4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        tools:ignore="MissingConstraints"/>
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewVentas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
